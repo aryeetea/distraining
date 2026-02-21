@@ -90,7 +90,7 @@ export function Apply() {
           >
             Next Start:{" "}
             <span style={{ color: "#FF8C42", fontWeight: "600" }}>
-              March 2nd
+              Rolling Admissions!!
             </span>
           </p>
 
