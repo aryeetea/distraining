@@ -8,9 +8,15 @@
 
   <body>
     <!-- ✅ Hidden Netlify Forms (so Netlify detects them on deploy) -->
-    <form name="apply" netlify netlify-honeypot="bot-field" hidden>
+    <form
+      name="apply"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="hidden" name="form-name" value="apply" />
-      <p>
+      <p hidden>
         <label>
           Don’t fill this out: <input name="bot-field" />
         </label>
@@ -23,9 +29,15 @@
       <input type="text" name="zipCode" />
     </form>
 
-    <form name="contact-us" netlify netlify-honeypot="bot-field" hidden>
+    <form
+      name="contact-us"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="hidden" name="form-name" value="contact-us" />
-      <p>
+      <p hidden>
         <label>
           Don’t fill this out: <input name="bot-field" />
         </label>
