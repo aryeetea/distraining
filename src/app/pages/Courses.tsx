@@ -1,4 +1,8 @@
 export function Courses() {
+  // ✅ When your client gives you a payment link, paste it here.
+  // Example: "https://buy.stripe.com/xxxx" or "https://square.link/u/xxxx"
+  const PAYMENT_LINK = ""; // leave empty for now
+
   const course = {
     title: "Sterile Processing Fundamentals",
     duration: "8 weeks",
@@ -29,10 +33,42 @@ export function Courses() {
 
   const highlights = [
     { label: "Format", value: "Instructor-led + hands-on practice" },
+    { label: "Schedule", value: "2 online (weekday) + 1 in-person (weekend)" },
     { label: "Duration", value: "8 weeks" },
-    { label: "Level", value: "Standard" },
-    { label: "Outcome", value: "Certificate of training + readiness for certification pathways" }
+    { label: "Outcome", value: "Certificate of training + certification pathway readiness" }
   ];
+
+  const payButton = PAYMENT_LINK ? (
+    <a
+      href={PAYMENT_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full rounded-full py-3 text-center text-white transition-opacity hover:opacity-90 sm:w-auto sm:px-10"
+      style={{
+        backgroundColor: "#00A651",
+        fontSize: "15px",
+        fontWeight: "800",
+        fontFamily: "Rubik, sans-serif",
+        boxShadow: "0 4px 12px rgba(0, 166, 81, 0.25)"
+      }}
+    >
+      Pay Tuition Online
+    </a>
+  ) : (
+    <button
+      type="button"
+      className="w-full rounded-full py-3 text-center text-white opacity-80 sm:w-auto sm:px-10"
+      style={{
+        backgroundColor: "#00A651",
+        fontSize: "15px",
+        fontWeight: "800",
+        fontFamily: "Rubik, sans-serif"
+      }}
+      onClick={() => alert("Online payment link coming soon. Please contact us to pay or check back shortly.")}
+    >
+      Pay Tuition Online (Coming Soon)
+    </button>
+  );
 
   return (
     <div className="py-12 md:py-20" style={{ backgroundColor: "#ffffff" }}>
@@ -133,7 +169,7 @@ export function Courses() {
                       fontFamily: "Rubik, sans-serif",
                       fontSize: "12px",
                       opacity: 0.65,
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "#0c121c"
                     }}
                   >
@@ -143,7 +179,7 @@ export function Courses() {
                     style={{
                       fontFamily: "Rubik, sans-serif",
                       fontSize: "14px",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "#0c121c",
                       marginTop: 4
                     }}
@@ -161,7 +197,7 @@ export function Courses() {
                 style={{
                   fontFamily: "Poppins, sans-serif",
                   fontSize: "18px",
-                  fontWeight: "700",
+                  fontWeight: "800",
                   color: "#003087"
                 }}
               >
@@ -190,16 +226,16 @@ export function Courses() {
             {/* CTA */}
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="/contact"
+                href="/apply"
                 className="w-full rounded-full py-3 text-center text-white transition-opacity hover:opacity-90 sm:w-auto sm:px-10"
                 style={{
                   backgroundColor: course.color,
                   fontSize: "15px",
-                  fontWeight: "700",
+                  fontWeight: "800",
                   fontFamily: "Rubik, sans-serif"
                 }}
               >
-                Enroll / Request Info
+                Apply Now
               </a>
 
               <a
@@ -210,12 +246,143 @@ export function Courses() {
                   backgroundColor: "white",
                   color: "#003087",
                   fontSize: "15px",
-                  fontWeight: "700",
+                  fontWeight: "800",
                   fontFamily: "Rubik, sans-serif"
                 }}
               >
                 Ask a Question
               </a>
+
+              {payButton}
+            </div>
+
+            {/* NEW: Payment Section */}
+            <div
+              className="mt-10 overflow-hidden rounded-2xl border bg-[#f8fafc]"
+              style={{ borderColor: "rgba(0,48,135,0.10)" }}
+            >
+              {/* Accent bar */}
+              <div
+                className="h-2"
+                style={{
+                  background: "linear-gradient(90deg, #003087 0%, #00A651 60%, #FF8C42 100%)"
+                }}
+              />
+              <div className="p-6 md:p-8">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "22px",
+                        fontWeight: "900",
+                        color: "#003087"
+                      }}
+                    >
+                      Pay Tuition Online
+                    </h3>
+                    <p
+                      className="mt-2"
+                      style={{
+                        fontFamily: "Rubik, sans-serif",
+                        fontSize: "15px",
+                        lineHeight: 1.7,
+                        color: "#0c121c",
+                        opacity: 0.8
+                      }}
+                    >
+                      Secure online payments are available for tuition and fees. After submitting your application,
+                      you can complete your payment online. If you have questions about payment options or installments,
+                      contact our team.
+                    </p>
+                    <p
+                      className="mt-3"
+                      style={{
+                        fontFamily: "Rubik, sans-serif",
+                        fontSize: "13px",
+                        color: "#0c121c",
+                        opacity: 0.65
+                      }}
+                    >
+                      Please do not include sensitive personal health information in any payment notes.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col gap-3 md:min-w-[260px]">
+                    {PAYMENT_LINK ? (
+                      <a
+                        href={PAYMENT_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full rounded-full py-3 text-center text-white transition-opacity hover:opacity-90"
+                        style={{
+                          backgroundColor: "#00A651",
+                          fontSize: "15px",
+                          fontWeight: "900",
+                          fontFamily: "Rubik, sans-serif",
+                          boxShadow: "0 4px 12px rgba(0, 166, 81, 0.25)"
+                        }}
+                      >
+                        Proceed to Secure Payment
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        className="w-full rounded-full py-3 text-center text-white opacity-80"
+                        style={{
+                          backgroundColor: "#00A651",
+                          fontSize: "15px",
+                          fontWeight: "900",
+                          fontFamily: "Rubik, sans-serif"
+                        }}
+                        onClick={() => alert("Payment link coming soon. Please contact us for payment options.")}
+                      >
+                        Payment Link Coming Soon
+                      </button>
+                    )}
+
+                    <a
+                      href="/contact"
+                      className="w-full rounded-full py-3 text-center"
+                      style={{
+                        backgroundColor: "white",
+                        border: "1px solid rgba(0,48,135,0.15)",
+                        color: "#003087",
+                        fontSize: "14px",
+                        fontWeight: "900",
+                        fontFamily: "Rubik, sans-serif"
+                      }}
+                    >
+                      Ask About Payment Options
+                    </a>
+                  </div>
+                </div>
+
+                {/* Small trust row */}
+                <div className="mt-6 grid gap-3 md:grid-cols-3">
+                  {[
+                    { title: "Secure Checkout", desc: "Payments handled through a trusted provider." },
+                    { title: "Instant Confirmation", desc: "Receive confirmation after successful payment." },
+                    { title: "Need Help?", desc: "Contact us for receipts or questions." }
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl border bg-white p-4"
+                      style={{ borderColor: "rgba(0,48,135,0.08)" }}
+                    >
+                      <div style={{ fontFamily: "Poppins, sans-serif", fontWeight: 800, color: "#0c121c" }}>
+                        {item.title}
+                      </div>
+                      <div
+                        className="mt-1"
+                        style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, opacity: 0.75, lineHeight: 1.6 }}
+                      >
+                        {item.desc}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -226,7 +393,7 @@ export function Courses() {
               style={{
                 fontFamily: "Poppins, sans-serif",
                 fontSize: "20px",
-                fontWeight: "800",
+                fontWeight: "900",
                 color: "#003087"
               }}
             >
@@ -244,7 +411,7 @@ export function Courses() {
                     style={{
                       fontFamily: "Rubik, sans-serif",
                       fontSize: "12px",
-                      fontWeight: 700,
+                      fontWeight: 900,
                       color: "#00A651",
                       marginBottom: 2
                     }}
@@ -255,7 +422,7 @@ export function Courses() {
                     style={{
                       fontFamily: "Rubik, sans-serif",
                       fontSize: "14px",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "#0c121c",
                       opacity: 0.9
                     }}
@@ -266,17 +433,8 @@ export function Courses() {
               ))}
             </div>
 
-            <div
-              className="mt-6 rounded-xl p-4 text-white"
-              style={{ backgroundColor: "#003087" }}
-            >
-              <div
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 800,
-                  fontSize: "16px"
-                }}
-              >
+            <div className="mt-6 rounded-xl p-4 text-white" style={{ backgroundColor: "#003087" }}>
+              <div style={{ fontFamily: "Poppins, sans-serif", fontWeight: 900, fontSize: "16px" }}>
                 Completion Outcome
               </div>
               <p
@@ -288,8 +446,8 @@ export function Courses() {
                   lineHeight: 1.6
                 }}
               >
-                Students receive a certificate of training and build confidence to
-                pursue sterile processing certification pathways.
+                Students receive a certificate of training and build confidence to pursue sterile processing
+                certification pathways.
               </p>
             </div>
           </div>

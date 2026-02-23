@@ -9,6 +9,11 @@ function encode(data: Record<string, string>) {
 
 export function Apply() {
   const navigate = useNavigate();
+
+  // ✅ Paste your client's Stripe/Square payment link here later
+  // Example: "https://buy.stripe.com/xxxx" or "https://square.link/u/xxxx"
+  const PAYMENT_LINK = "";
+
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle"
   );
@@ -28,7 +33,7 @@ export function Apply() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
@@ -51,7 +56,7 @@ export function Apply() {
         zipCode: ""
       });
 
-      // redirect after a short moment
+      // Optional: redirect after a short moment
       setTimeout(() => navigate("/"), 1200);
     } catch (err) {
       setStatus("error");
@@ -90,7 +95,7 @@ export function Apply() {
           >
             Next Start:{" "}
             <span style={{ color: "#FF8C42", fontWeight: "600" }}>
-              Rolling Admissions!!
+              March 2nd
             </span>
           </p>
 
@@ -100,7 +105,13 @@ export function Apply() {
               className="mb-6 rounded-xl border bg-[#f8fafc] p-4"
               style={{ borderColor: "rgba(0,166,81,0.25)" }}
             >
-              <p style={{ fontFamily: "Rubik, sans-serif", opacity: 0.85 }}>
+              <p
+                style={{
+                  fontFamily: "Rubik, sans-serif",
+                  color: "#0c121c",
+                  opacity: 0.85
+                }}
+              >
                 ✅ Application submitted! We’ll contact you soon.
               </p>
             </div>
@@ -111,7 +122,13 @@ export function Apply() {
               className="mb-6 rounded-xl border bg-[#f8fafc] p-4"
               style={{ borderColor: "rgba(255,140,66,0.35)" }}
             >
-              <p style={{ fontFamily: "Rubik, sans-serif", opacity: 0.85 }}>
+              <p
+                style={{
+                  fontFamily: "Rubik, sans-serif",
+                  color: "#0c121c",
+                  opacity: 0.85
+                }}
+              >
                 ⚠️ Something went wrong. Please try again.
               </p>
             </div>
@@ -134,65 +151,92 @@ export function Apply() {
               </label>
             </p>
 
+            {/* First and Last Name Row */}
             <div className="grid gap-4 md:grid-cols-2">
-              <input
-                type="text"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                placeholder="First Name"
-                required
-                className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
-                style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
-              />
+              <div>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  placeholder="First Name"
+                  required
+                  className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "15px"
+                  }}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name"
+                  required
+                  className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "15px"
+                  }}
+                />
+              </div>
+            </div>
 
+            {/* Email */}
+            <div>
               <input
-                type="text"
-                name="lastName"
-                value={formData.lastName}
+                type="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
-                placeholder="Last Name"
+                placeholder="Email"
                 required
                 className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
-                style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
+                style={{
+                  fontFamily: "Rubik, sans-serif",
+                  fontSize: "15px"
+                }}
               />
             </div>
 
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              required
-              className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
-              style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
-            />
-
+            {/* Phone and ZIP Code Row */}
             <div className="grid gap-4 md:grid-cols-2">
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Phone"
-                required
-                className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
-                style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
-              />
-
-              <input
-                type="text"
-                name="zipCode"
-                value={formData.zipCode}
-                onChange={handleChange}
-                placeholder="ZIP Code"
-                required
-                className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
-                style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
-              />
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone"
+                  required
+                  className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "15px"
+                  }}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="zipCode"
+                  value={formData.zipCode}
+                  onChange={handleChange}
+                  placeholder="ZIP Code"
+                  required
+                  className="w-full rounded-lg border-2 border-gray-200 px-4 py-3.5 transition-all focus:border-[#003087] focus:outline-none"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "15px"
+                  }}
+                />
+              </div>
             </div>
 
+            {/* Consent Text */}
             <p
               className="text-center"
               style={{
@@ -200,15 +244,17 @@ export function Apply() {
                 fontSize: "12px",
                 lineHeight: "1.6",
                 color: "#0c121c",
-                opacity: 0.7
+                opacity: "0.7"
               }}
             >
               By submitting this form, I consent to DAS Sterile Processing
-              Training Centre contacting me by phone for marketing messages and
-              email using the information I have provided. Consent is not a
+              Training Centre contacting me by phone for marketing messages
+              (including mobile and manual/autodialed means) and email using the
+              information I have provided. I understand that my consent is not a
               condition of enrollment.
             </p>
 
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={status === "sending"}
@@ -221,7 +267,7 @@ export function Apply() {
                 boxShadow: "0 4px 16px rgba(255, 140, 66, 0.4)"
               }}
             >
-              {status === "sending" ? "Submitting..." : "Submit"}
+              {status === "sending" ? "Submitting..." : "Submit Application"}
             </button>
 
             <p
@@ -235,9 +281,62 @@ export function Apply() {
             >
               Please don’t include sensitive personal health information.
             </p>
+
+            {/* ✅ NEW: Pay Tuition Online */}
+            <div className="mt-4">
+              {PAYMENT_LINK ? (
+                <a
+                  href={PAYMENT_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full rounded-full py-4 text-center text-white transition-opacity hover:opacity-90"
+                  style={{
+                    backgroundColor: "#00A651",
+                    fontSize: "16px",
+                    fontWeight: "800",
+                    fontFamily: "Poppins, sans-serif",
+                    boxShadow: "0 4px 12px rgba(0, 166, 81, 0.3)"
+                  }}
+                >
+                  Pay Tuition Online
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="w-full rounded-full py-4 text-white opacity-80"
+                  style={{
+                    backgroundColor: "#00A651",
+                    fontSize: "16px",
+                    fontWeight: "800",
+                    fontFamily: "Poppins, sans-serif"
+                  }}
+                  onClick={() =>
+                    alert(
+                      "Online payment link coming soon. Please contact us for payment options."
+                    )
+                  }
+                >
+                  Pay Tuition Online (Coming Soon)
+                </button>
+              )}
+
+              <p
+                className="mt-2 text-center"
+                style={{
+                  fontFamily: "Rubik, sans-serif",
+                  fontSize: 12,
+                  opacity: 0.65,
+                  lineHeight: 1.6,
+                  color: "#0c121c"
+                }}
+              >
+                After you apply, you can complete your tuition payment online. If you need help, please contact us.
+              </p>
+            </div>
           </form>
         </div>
 
+        {/* Back Link */}
         <button
           onClick={() => navigate("/")}
           className="mt-6 w-full text-center text-white transition-opacity hover:opacity-80"
