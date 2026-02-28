@@ -77,8 +77,9 @@ export function AboutUs() {
                 >
                   DAS Sterile Processing Training Centre is dedicated to
                   providing world-class education and certification programs
-                  for healthcare professionals in sterile processing and
-                  infection control.
+                  for healthcare professionals in sterile processing, preparing
+                  graduates to work confidently in healthcare facilities across
+                  all 50 states.
                 </p>
 
                 <p
@@ -188,7 +189,7 @@ export function AboutUs() {
                 <ul className="space-y-4">
                   {[
                     "Industry-leading instructors with decades of experience",
-                    "State-of-the-art training facilities and equipment",
+                    "Interactive teaching methods and flexible pacing designed to support every student's learning journey",
                     "Flexible scheduling options for working professionals",
                     "Comprehensive certification preparation",
                     "Career support and job placement assistance"
@@ -239,4 +240,4 @@ export function AboutUs() {
       </div>
     </div>
   );
-}  
+}

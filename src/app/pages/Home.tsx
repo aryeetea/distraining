@@ -1,5 +1,6 @@
 import { HeroSection } from '../components/HeroSection';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { Link } from 'react-router';
 
 export function Home() {
   const stats = [
@@ -94,16 +95,16 @@ export function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1748002388689-c62b45d5c28b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXJnaWNhbCUyMGluc3RydW1lbnRzJTIwc3RlcmlsZSUyMHByb2Nlc3NpbmclMjBtZWRpY2FsJTIwdG9vbHN8ZW58MXx8fHwxNzcxNjA3ODU5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Surgical Instruments"
+                src="https://healthcare.seattlecentral.edu/sites/alliedhealth.seattlecentral.dev/files/inline-images/sterile-processing-student-training.jpg"
+                alt="Sterile Processing Student Training"
                 className="h-72 w-full object-cover"
               />
             </div>
 
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1758206523660-3ef5a51f1113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXJnZXJ5JTIwaW5zdHJ1bWVudHMlMjBob3NwaXRhbCUyMG9wZXJhdGluZyUyMHJvb20lMjB0b29sc3xlbnwxfHx8fDE3NzE2MDc4NTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Operating Room Surgical Tools"
+                src="https://nbrhc.on.ca/wp-content/uploads/2013/10/Patient-Safety.jpg"
+                alt="Patient Safety"
                 className="h-72 w-full object-cover"
               />
             </div>
@@ -143,8 +144,8 @@ export function Home() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <a
-                href="/apply"
+              <Link
+                to="/apply"
                 className="rounded-full px-10 py-3 text-white transition-opacity hover:opacity-90"
                 style={{
                   backgroundColor: '#FF8C42',
@@ -153,10 +154,10 @@ export function Home() {
                 }}
               >
                 Apply Now
-              </a>
+              </Link>
 
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="rounded-full px-10 py-3 transition-opacity hover:opacity-90"
                 style={{
                   backgroundColor: '#ffffff',
@@ -167,7 +168,7 @@ export function Home() {
                 }}
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

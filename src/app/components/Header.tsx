@@ -56,33 +56,34 @@ export function Header({
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto max-w-[1440px] px-4 md:px-8">
         <div className="flex items-center justify-between gap-4 py-4 md:py-[18px]">
+
           {/* Logo */}
           <Link to="/" className="flex flex-col" onClick={() => setMobileMenuOpen(false)}>
             <div className="flex items-baseline gap-1">
-              <span 
+              <span
                 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-none tracking-tight"
-                style={{ 
-                  fontFamily: 'Poppins, sans-serif', 
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
                   color: '#FF8C42',
                   textShadow: '0 2px 4px rgba(255, 140, 66, 0.15)'
                 }}
               >
                 D
               </span>
-              <span 
+              <span
                 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-none tracking-tight"
-                style={{ 
-                  fontFamily: 'Poppins, sans-serif', 
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
                   color: '#003087',
                   textShadow: '0 2px 4px rgba(0, 48, 135, 0.15)'
                 }}
               >
                 A
               </span>
-              <span 
+              <span
                 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-none tracking-tight"
-                style={{ 
-                  fontFamily: 'Poppins, sans-serif', 
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
                   color: '#00A651',
                   textShadow: '0 2px 4px rgba(0, 166, 81, 0.15)'
                 }}
@@ -90,9 +91,9 @@ export function Header({
                 S
               </span>
             </div>
-            <div 
+            <div
               className="mt-1 hidden md:block"
-              style={{ 
+              style={{
                 fontFamily: 'Rubik, sans-serif',
                 fontSize: '10px',
                 color: '#0c121c',
@@ -111,13 +112,13 @@ export function Header({
             {navLinks.map((link, index) => {
               const isActive = location.pathname === link.href;
               return (
-                <Link 
+                <Link
                   key={index}
-                  to={link.href} 
+                  to={link.href}
                   className="transition-colors hover:text-[#003087]"
-                  style={{ 
-                    fontSize: '15px', 
-                    letterSpacing: '0.5px', 
+                  style={{
+                    fontSize: '15px',
+                    letterSpacing: '0.5px',
                     lineHeight: '27px',
                     color: isActive ? '#003087' : '#0c121c',
                     fontWeight: isActive ? '600' : '400'
@@ -132,10 +133,10 @@ export function Header({
           {/* CTA Buttons - Desktop */}
           <div className="hidden lg:flex items-center gap-2 md:gap-3">
             <PrimaryButton onClick={handleFreeTrial}>
-              Send Free Trial
+              Contact Us
             </PrimaryButton>
             <SecondaryButton onClick={handleSignUp}>
-              Sign Up
+              Apply Now
             </SecondaryButton>
           </div>
 
@@ -164,13 +165,13 @@ export function Header({
               {navLinks.map((link, index) => {
                 const isActive = location.pathname === link.href;
                 return (
-                  <Link 
+                  <Link
                     key={index}
                     to={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-4 py-3 rounded-lg transition-colors hover:bg-gray-50"
-                    style={{ 
-                      fontSize: '15px', 
+                    style={{
+                      fontSize: '15px',
                       letterSpacing: '0.5px',
                       fontFamily: 'Rubik, sans-serif',
                       color: isActive ? '#003087' : '#0c121c',
@@ -183,13 +184,13 @@ export function Header({
                 );
               })}
             </nav>
-            
+
             <div className="mt-4 flex flex-col gap-3 px-4">
               <PrimaryButton onClick={handleFreeTrial} className="w-full justify-center">
-                Send Free Trial
+                Contact Us
               </PrimaryButton>
               <SecondaryButton onClick={handleSignUp} className="w-full justify-center">
-                Sign Up
+                Apply Now
               </SecondaryButton>
             </div>
           </div>

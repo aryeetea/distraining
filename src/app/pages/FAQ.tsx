@@ -22,7 +22,7 @@ export function FAQ() {
     {
       question: "Do you offer job placement assistance?",
       answer:
-        "Absolutely! We have strong partnerships with local healthcare facilities and provide career counseling, resume assistance, and interview preparation."
+        "We offer internship placements, prvide career counseling services, resume assistance and Internship preparation workshops to help our graduates successfully transition into the workforce."
     },
     {
       question: "Can I take classes online?",
@@ -32,7 +32,7 @@ export function FAQ() {
     {
       question: "What are the career prospects after graduation?",
       answer:
-        "Sterile processing technicians are in high demand. Graduates typically find employment in hospitals, surgical centers, dental offices, and medical device companies with competitive salaries."
+        "Sterile processing technicians are in high demand throughout the country. Graduates typically find employment in hospitals, dental and opthalmology clinics with competitive salaries."
     }
   ];
 

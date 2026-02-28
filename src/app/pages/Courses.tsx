@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export function Courses() {
   // ✅ When your client gives you a payment link, paste it here.
   // Example: "https://buy.stripe.com/xxxx" or "https://square.link/u/xxxx"
@@ -64,7 +66,9 @@ export function Courses() {
         fontWeight: "800",
         fontFamily: "Rubik, sans-serif"
       }}
-      onClick={() => alert("Online payment link coming soon. Please contact us to pay or check back shortly.")}
+      onClick={() =>
+        alert("Online payment link coming soon. Please contact us to pay or check back shortly.")
+      }
     >
       Pay Tuition Online (Coming Soon)
     </button>
@@ -225,8 +229,8 @@ export function Courses() {
 
             {/* CTA */}
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/apply"
+              <Link
+                to="/apply"
                 className="w-full rounded-full py-3 text-center text-white transition-opacity hover:opacity-90 sm:w-auto sm:px-10"
                 style={{
                   backgroundColor: course.color,
@@ -236,11 +240,11 @@ export function Courses() {
                 }}
               >
                 Apply Now
-              </a>
+              </Link>
 
-              <a
-                href="/contact"
-                className="w-full rounded-full py-3 text-center sm:w-auto sm:px-10"
+              <Link
+                to="/contact"
+                className="w-full rounded-full py-3 text-center sm:w-auto sm:px-10 transition-opacity hover:opacity-90"
                 style={{
                   border: "1px solid #e5e7eb",
                   backgroundColor: "white",
@@ -251,21 +255,21 @@ export function Courses() {
                 }}
               >
                 Ask a Question
-              </a>
+              </Link>
 
               {payButton}
             </div>
 
-            {/* NEW: Payment Section */}
+            {/* Payment Section */}
             <div
               className="mt-10 overflow-hidden rounded-2xl border bg-[#f8fafc]"
               style={{ borderColor: "rgba(0,48,135,0.10)" }}
             >
-              {/* Accent bar */}
               <div
                 className="h-2"
                 style={{
-                  background: "linear-gradient(90deg, #003087 0%, #00A651 60%, #FF8C42 100%)"
+                  background:
+                    "linear-gradient(90deg, #003087 0%, #00A651 60%, #FF8C42 100%)"
                 }}
               />
               <div className="p-6 md:p-8">
@@ -335,15 +339,17 @@ export function Courses() {
                           fontWeight: "900",
                           fontFamily: "Rubik, sans-serif"
                         }}
-                        onClick={() => alert("Payment link coming soon. Please contact us for payment options.")}
+                        onClick={() =>
+                          alert("Payment link coming soon. Please contact us for payment options.")
+                        }
                       >
                         Payment Link Coming Soon
                       </button>
                     )}
 
-                    <a
-                      href="/contact"
-                      className="w-full rounded-full py-3 text-center"
+                    <Link
+                      to="/contact"
+                      className="w-full rounded-full py-3 text-center transition-opacity hover:opacity-90"
                       style={{
                         backgroundColor: "white",
                         border: "1px solid rgba(0,48,135,0.15)",
@@ -354,11 +360,10 @@ export function Courses() {
                       }}
                     >
                       Ask About Payment Options
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
-                {/* Small trust row */}
                 <div className="mt-6 grid gap-3 md:grid-cols-3">
                   {[
                     { title: "Secure Checkout", desc: "Payments handled through a trusted provider." },
