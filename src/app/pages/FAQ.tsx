@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const navigate = useNavigate();
 
   const faqs = [
     {
@@ -74,6 +75,7 @@ export function FAQ() {
               }}
             >
               <button
+                type="button"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-5 text-left transition-colors hover:bg-gray-50"
               >
@@ -179,8 +181,9 @@ export function FAQ() {
           ))}
         </div>
 
+        {/* CTA block (same vibe as your About page cards) */}
         <div
-          className="mt-10 rounded-2xl border bg-white p-6 text-center"
+          className="mt-10 rounded-2xl border bg-white p-6 text-center shadow-sm"
           style={{ borderColor: "rgba(0, 48, 135, 0.08)" }}
         >
           <p
@@ -194,8 +197,9 @@ export function FAQ() {
             Still have questions? Send us a message and we’ll get back to you.
           </p>
 
-          <Link
-            to="/contact"
+          <button
+            type="button"
+            onClick={() => navigate("/contact")}
             className="inline-block rounded-full px-8 py-3 text-white transition-opacity hover:opacity-90"
             style={{
               backgroundColor: "#00A651",
@@ -205,7 +209,7 @@ export function FAQ() {
             }}
           >
             Contact Us
-          </Link>
+          </button>
         </div>
       </div>
     </div>
