@@ -195,7 +195,7 @@ export function FAQ() {
           </p>
 
           <Link
-            to="/contact"
+            to="/contact-us"
             className="inline-block rounded-full px-8 py-3 text-white transition-opacity hover:opacity-90"
             style={{
               backgroundColor: "#00A651",
