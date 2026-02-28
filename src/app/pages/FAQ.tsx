@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -78,7 +79,6 @@ export function FAQ() {
               >
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-start gap-4">
-                    {/* Q Badge */}
                     <div
                       className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg"
                       style={{
@@ -113,7 +113,6 @@ export function FAQ() {
                     </h3>
                   </div>
 
-                  {/* Chevron */}
                   <div
                     className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg transition-all"
                     style={{
@@ -146,7 +145,6 @@ export function FAQ() {
                   }}
                 >
                   <div className="flex gap-4">
-                    {/* A Badge */}
                     <div
                       className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg"
                       style={{ backgroundColor: "rgba(0, 166, 81, 0.12)" }}
@@ -181,7 +179,6 @@ export function FAQ() {
           ))}
         </div>
 
-        {/* Optional small CTA (remove if you don’t want it) */}
         <div
           className="mt-10 rounded-2xl border bg-white p-6 text-center"
           style={{ borderColor: "rgba(0, 48, 135, 0.08)" }}
@@ -197,8 +194,8 @@ export function FAQ() {
             Still have questions? Send us a message and we’ll get back to you.
           </p>
 
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-block rounded-full px-8 py-3 text-white transition-opacity hover:opacity-90"
             style={{
               backgroundColor: "#00A651",
@@ -208,7 +205,7 @@ export function FAQ() {
             }}
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </div>
