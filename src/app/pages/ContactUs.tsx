@@ -225,7 +225,7 @@ export function ContactUs() {
                   required
                   type="text"
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-[#003087] focus:outline-none"
-                  placeholder="John Doe"
+                  placeholder="Aileen Naa Ayele Aryeetey"
                   style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
                 />
               </div>
@@ -241,7 +241,7 @@ export function ContactUs() {
                   required
                   type="email"
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-[#003087] focus:outline-none"
-                  placeholder="john@example.com"
+                  placeholder="Naaayele03@example.com"
                   style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
                 />
               </div>
