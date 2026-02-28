@@ -12,7 +12,7 @@ export function FAQ() {
     {
       question: "How long does the program take to complete?",
       answer:
-        "Our Sterile Processing program is 8 weeks long. Classes are held three times a week. Two during the week[Online] and one during the weekend to accommodate working students."
+        "Our Sterile Processing program is 8 weeks long. Classes are held three times a week. Two during the week [Online] and one during the weekend to accommodate working students."
     },
     {
       question: "What certification will I receive?",
