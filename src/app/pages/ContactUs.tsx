@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function encode(data: Record<string, string>) {
   return Object.keys(data)
@@ -11,12 +11,12 @@ export function ContactUs() {
     fullName: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
 
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
+    "idle"
+  );
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,18 +30,21 @@ export function ContactUs() {
     setStatus("sending");
 
     try {
-      await fetch("/", {
+      // Use current page path (helps when not hosted at "/")
+      const res = await fetch(window.location.pathname, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "contact-us",
-          ...formData
-        })
+          ...formData,
+        }),
       });
+
+      if (!res.ok) throw new Error("Network response was not ok");
 
       setStatus("success");
       setFormData({ fullName: "", email: "", subject: "", message: "" });
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   }
@@ -55,7 +58,7 @@ export function ContactUs() {
             fontFamily: "Poppins, sans-serif",
             fontSize: "clamp(32px, 5vw, 48px)",
             fontWeight: "800",
-            color: "#003087"
+            color: "#003087",
           }}
         >
           Contact Us
@@ -67,7 +70,7 @@ export function ContactUs() {
             fontFamily: "Rubik, sans-serif",
             fontSize: "clamp(16px, 2vw, 18px)",
             color: "#0c121c",
-            opacity: "0.7"
+            opacity: "0.7",
           }}
         >
           Get in touch with our team - we're here to help
@@ -81,7 +84,7 @@ export function ContactUs() {
               style={{
                 fontFamily: "Poppins, sans-serif",
                 fontSize: "28px",
-                fontWeight: "700"
+                fontWeight: "700",
               }}
             >
               Get In Touch
@@ -90,17 +93,47 @@ export function ContactUs() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px", fontWeight: "600" }}>
+                  <h3
+                    className="mb-1"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "16px",
+                      fontWeight: "600",
+                    }}
+                  >
                     Address
                   </h3>
-                  <p style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px", lineHeight: "1.6", opacity: "0.9" }}>
-                    860 MELROSE AVENUE<br />
+                  <p
+                    style={{
+                      fontFamily: "Rubik, sans-serif",
+                      fontSize: "15px",
+                      lineHeight: "1.6",
+                      opacity: "0.9",
+                    }}
+                  >
+                    860 MELROSE AVENUE
+                    <br />
                     Bronx NY, 10451
                   </p>
                 </div>
@@ -108,15 +141,38 @@ export function ContactUs() {
 
               <div className="flex items-start gap-4">
                 <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px", fontWeight: "600" }}>
+                  <h3
+                    className="mb-1"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "16px",
+                      fontWeight: "600",
+                    }}
+                  >
                     Phone
                   </h3>
-                  <p style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px", opacity: "0.9" }}>
+                  <p
+                    style={{
+                      fontFamily: "Rubik, sans-serif",
+                      fontSize: "15px",
+                      opacity: "0.9",
+                    }}
+                  >
                     614-815-8070 or 929-922-0726
                   </p>
                 </div>
@@ -124,15 +180,38 @@ export function ContactUs() {
 
               <div className="flex items-start gap-4">
                 <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px", fontWeight: "600" }}>
+                  <h3
+                    className="mb-1"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "16px",
+                      fontWeight: "600",
+                    }}
+                  >
                     Email
                   </h3>
-                  <p style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px", opacity: "0.9" }}>
+                  <p
+                    style={{
+                      fontFamily: "Rubik, sans-serif",
+                      fontSize: "15px",
+                      opacity: "0.9",
+                    }}
+                  >
                     Dassterile@gmail.com
                   </p>
                 </div>
@@ -140,17 +219,43 @@ export function ContactUs() {
 
               <div className="flex items-start gap-4">
                 <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px", fontWeight: "600" }}>
+                  <h3
+                    className="mb-1"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "16px",
+                      fontWeight: "600",
+                    }}
+                  >
                     Office Hours
                   </h3>
-                  <p style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px", lineHeight: "1.6", opacity: "0.9" }}>
-                    Monday - Friday: 8:00 AM - 5:00 PM<br />
-                    Saturday: 9:00 AM - 4:00 PM<br />
+                  <p
+                    style={{
+                      fontFamily: "Rubik, sans-serif",
+                      fontSize: "15px",
+                      lineHeight: "1.6",
+                      opacity: "0.9",
+                    }}
+                  >
+                    Monday - Friday: 8:00 AM - 5:00 PM
+                    <br />
+                    Saturday: 9:00 AM - 4:00 PM
+                    <br />
                     Sunday: Closed
                   </p>
                 </div>
@@ -166,7 +271,7 @@ export function ContactUs() {
                 fontFamily: "Poppins, sans-serif",
                 fontSize: "28px",
                 fontWeight: "700",
-                color: "#0c121c"
+                color: "#0c121c",
               }}
             >
               Send Us a Message
@@ -177,14 +282,17 @@ export function ContactUs() {
               style={{
                 fontFamily: "Rubik, sans-serif",
                 color: "#0c121c",
-                opacity: 0.7
+                opacity: 0.7,
               }}
             >
               We typically respond within 24–48 hours.
             </p>
 
             {status === "success" && (
-              <div className="mb-6 rounded-xl border bg-white p-4" style={{ borderColor: "rgba(0,166,81,0.25)" }}>
+              <div
+                className="mb-6 rounded-xl border bg-white p-4"
+                style={{ borderColor: "rgba(0,166,81,0.25)" }}
+              >
                 <p style={{ fontFamily: "Rubik, sans-serif", opacity: 0.85 }}>
                   ✅ Message sent! We’ll get back to you soon.
                 </p>
@@ -192,7 +300,10 @@ export function ContactUs() {
             )}
 
             {status === "error" && (
-              <div className="mb-6 rounded-xl border bg-white p-4" style={{ borderColor: "rgba(255,140,66,0.35)" }}>
+              <div
+                className="mb-6 rounded-xl border bg-white p-4"
+                style={{ borderColor: "rgba(255,140,66,0.35)" }}
+              >
                 <p style={{ fontFamily: "Rubik, sans-serif", opacity: 0.85 }}>
                   ⚠️ Something went wrong. Please try again.
                 </p>
@@ -202,10 +313,12 @@ export function ContactUs() {
             <form
               name="contact-us"
               method="POST"
+              action="/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               className="space-y-5"
+              noValidate
             >
               <input type="hidden" name="form-name" value="contact-us" />
               <p className="hidden">
@@ -215,7 +328,15 @@ export function ContactUs() {
               </p>
 
               <div>
-                <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: "14px", fontWeight: "600", color: "#0c121c" }}>
+                <label
+                  className="mb-2 block"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    color: "#0c121c",
+                  }}
+                >
                   Full Name
                 </label>
                 <input
@@ -231,7 +352,15 @@ export function ContactUs() {
               </div>
 
               <div>
-                <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: "14px", fontWeight: "600", color: "#0c121c" }}>
+                <label
+                  className="mb-2 block"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    color: "#0c121c",
+                  }}
+                >
                   Email Address
                 </label>
                 <input
@@ -247,9 +376,17 @@ export function ContactUs() {
               </div>
 
               <div>
-                <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: "14px", fontWeight: "600", color: "#0c121c" }}>
+                <label
+                  className="mb-2 block"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    color: "#0c121c",
+                  }}
+                >
                   Subject
-                </label>https://cdn2.hubspot.net/hubfs/364433/2020_01_11_ArrMtS03_A_medium.jpg
+                </label>
                 <input
                   name="subject"
                   value={formData.subject}
@@ -263,7 +400,15 @@ export function ContactUs() {
               </div>
 
               <div>
-                <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: "14px", fontWeight: "600", color: "#0c121c" }}>
+                <label
+                  className="mb-2 block"
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    color: "#0c121c",
+                  }}
+                >
                   Message
                 </label>
                 <textarea
@@ -287,13 +432,20 @@ export function ContactUs() {
                   fontSize: "16px",
                   fontWeight: "800",
                   fontFamily: "Rubik, sans-serif",
-                  boxShadow: "0 4px 12px rgba(0, 166, 81, 0.3)"
+                  boxShadow: "0 4px 12px rgba(0, 166, 81, 0.3)",
                 }}
               >
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
 
-              <p style={{ fontFamily: "Rubik, sans-serif", fontSize: 12, opacity: 0.6, marginTop: 6 }}>
+              <p
+                style={{
+                  fontFamily: "Rubik, sans-serif",
+                  fontSize: 12,
+                  opacity: 0.6,
+                  marginTop: 6,
+                }}
+              >
                 Please don’t include sensitive personal health information.
               </p>
             </form>
