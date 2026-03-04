@@ -8,7 +8,7 @@ export function FAQ() {
     {
       question: "What are the admission requirements?",
       answer:
-        "Applicants must have a high school diploma or equivalent, be at least 18 years old, and pass a background check. Medical terminology knowledge is recommended but not required."
+        "Applicants must have a minimum of a high school diploma or equivalent, be at least 18 years old, and be ready and willing to dedicate eight weeks of their time to fully participate in the program."
     },
     {
       question: "How long does the program take to complete?",
@@ -23,7 +23,7 @@ export function FAQ() {
     {
       question: "Do you offer job placement assistance?",
       answer:
-        "We offer internship placements, career counseling, resume assistance, and internship preparation workshops to help graduates transition into the workforce."
+        "We provide internship placements, career counseling, resume assistance, and internship preparation workshops to support graduates as they transition into the workforce."
     },
     {
       question: "Can I take classes online?",
