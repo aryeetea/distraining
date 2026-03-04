@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const navigate = useNavigate();
 
   const faqs = [
     {
@@ -14,27 +13,27 @@ export function FAQ() {
     {
       question: "How long does the program take to complete?",
       answer:
-        "Our Sterile Processing program is 8 weeks long. Classes are held three times a week. Two during the week [Online] and one during the weekend to accommodate working students."
+        "Our Sterile Processing program is 8 weeks long. Classes are held three times a week. Two during the week (online) and one during the weekend to accommodate working students."
     },
     {
       question: "What certification will I receive?",
       answer:
-        "Upon completion, you will be prepared to sit for the Certified Registered Central Service Technician (CRCST) exam. Our program meets all certification body requirements."
+        "Upon completion, you will be prepared to sit for the CRCST exam. Our program supports certification pathway readiness."
     },
     {
       question: "Do you offer job placement assistance?",
       answer:
-        "We offer internship placements, prvide career counseling services, resume assistance and Internship preparation workshops to help our graduates successfully transition into the workforce."
+        "We offer internship placements, career counseling, resume assistance, and internship preparation workshops to help graduates transition into the workforce."
     },
     {
       question: "Can I take classes online?",
       answer:
-        "We offer a hybrid model with online theoretical coursework and hands-on sessions that must be completed in person."
+        "We offer a hybrid model with online coursework and hands-on sessions completed in person."
     },
     {
       question: "What are the career prospects after graduation?",
       answer:
-        "Sterile processing technicians are in high demand throughout the country. Graduates typically find employment in hospitals, dental and opthalmology clinics with competitive salaries."
+        "Sterile processing technicians are in high demand nationwide. Graduates typically find employment in hospitals and clinics with competitive salaries."
     }
   ];
 
@@ -70,14 +69,12 @@ export function FAQ() {
             <div
               key={index}
               className="overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:shadow-lg"
-              style={{
-                border: "1px solid rgba(0, 48, 135, 0.08)"
-              }}
+              style={{ border: "1px solid rgba(0, 48, 135, 0.08)" }}
             >
               <button
-                type="button"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-5 text-left transition-colors hover:bg-gray-50"
+                type="button"
               >
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-start gap-4">
@@ -85,9 +82,7 @@ export function FAQ() {
                       className="mt-1 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg"
                       style={{
                         backgroundColor:
-                          openIndex === index
-                            ? "rgba(0, 48, 135, 0.12)"
-                            : "rgba(0, 48, 135, 0.06)"
+                          openIndex === index ? "rgba(0, 48, 135, 0.12)" : "rgba(0, 48, 135, 0.06)"
                       }}
                     >
                       <span
@@ -119,9 +114,7 @@ export function FAQ() {
                     className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg transition-all"
                     style={{
                       backgroundColor:
-                        openIndex === index
-                          ? "rgba(0, 166, 81, 0.12)"
-                          : "rgba(0, 48, 135, 0.06)",
+                        openIndex === index ? "rgba(0, 166, 81, 0.12)" : "rgba(0, 48, 135, 0.06)",
                       transform: openIndex === index ? "rotate(180deg)" : "rotate(0deg)"
                     }}
                   >
@@ -181,25 +174,16 @@ export function FAQ() {
           ))}
         </div>
 
-        {/* CTA block (same vibe as your About page cards) */}
         <div
-          className="mt-10 rounded-2xl border bg-white p-6 text-center shadow-sm"
+          className="mt-10 rounded-2xl border bg-white p-6 text-center"
           style={{ borderColor: "rgba(0, 48, 135, 0.08)" }}
         >
-          <p
-            style={{
-              fontFamily: "Rubik, sans-serif",
-              color: "#0c121c",
-              opacity: 0.75,
-              marginBottom: 12
-            }}
-          >
+          <p style={{ fontFamily: "Rubik, sans-serif", color: "#0c121c", opacity: 0.75, marginBottom: 12 }}>
             Still have questions? Send us a message and we’ll get back to you.
           </p>
 
-          <button
-            type="button"
-            onClick={() => navigate("/contact")}
+          <Link
+            to="/contact"
             className="inline-block rounded-full px-8 py-3 text-white transition-opacity hover:opacity-90"
             style={{
               backgroundColor: "#00A651",
@@ -209,7 +193,7 @@ export function FAQ() {
             }}
           >
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
     </div>

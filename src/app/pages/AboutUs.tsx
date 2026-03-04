@@ -20,16 +20,11 @@ export function AboutUs() {
             {/* Our Mission Card */}
             <div
               className="overflow-hidden rounded-2xl bg-white shadow-lg"
-              style={{
-                border: "1px solid rgba(0, 48, 135, 0.08)"
-              }}
+              style={{ border: "1px solid rgba(0, 48, 135, 0.08)" }}
             >
               <div
                 className="h-2"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #003087 0%, #00A651 100%)"
-                }}
+                style={{ background: "linear-gradient(90deg, #003087 0%, #00A651 100%)" }}
               />
 
               <div className="p-8">
@@ -38,13 +33,7 @@ export function AboutUs() {
                     className="flex h-12 w-12 items-center justify-center rounded-xl"
                     style={{ backgroundColor: "rgba(0, 48, 135, 0.1)" }}
                   >
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      stroke="#003087"
-                      strokeWidth="2.5"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="h-6 w-6" fill="none" stroke="#003087" strokeWidth="2.5" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -75,11 +64,9 @@ export function AboutUs() {
                     opacity: "0.85"
                   }}
                 >
-                  DAS Sterile Processing Training Centre is dedicated to
-                  providing world-class education and certification programs
-                  for healthcare professionals in sterile processing, preparing
-                  graduates to work confidently in healthcare facilities across
-                  all 50 states.
+                  DAS Sterile Processing Training Centre is dedicated to providing world-class education and
+                  certification programs for healthcare professionals in sterile processing, preparing graduates to
+                  work confidently in healthcare facilities across all 50 states.
                 </p>
 
                 <p
@@ -91,19 +78,16 @@ export function AboutUs() {
                     opacity: "0.85"
                   }}
                 >
-                  Our comprehensive training ensures that every graduate meets
-                  the highest standards of patient safety and healthcare
-                  excellence.
+                  Our comprehensive training ensures that every graduate meets the highest standards of patient safety
+                  and healthcare excellence.
                 </p>
               </div>
             </div>
 
-            {/* NEW SUPPORT CARD — balances layout */}
+            {/* Our Approach */}
             <div
               className="overflow-hidden rounded-2xl bg-white shadow-md"
-              style={{
-                border: "1px solid rgba(0, 48, 135, 0.06)"
-              }}
+              style={{ border: "1px solid rgba(0, 48, 135, 0.06)" }}
             >
               <div className="p-8">
                 <h3
@@ -127,11 +111,9 @@ export function AboutUs() {
                     opacity: "0.85"
                   }}
                 >
-                  We focus on real-world sterile processing workflows,
-                  practical instruction, and professional readiness. Our
-                  programs are designed to build confidence, technical
-                  skills, and industry awareness so students can transition
-                  smoothly into healthcare environments.
+                  We focus on real-world sterile processing workflows, practical instruction, and professional
+                  readiness. Our programs are designed to build confidence, technical skills, and industry awareness
+                  so students can transition smoothly into healthcare environments.
                 </p>
               </div>
             </div>
@@ -141,16 +123,11 @@ export function AboutUs() {
           <div>
             <div
               className="overflow-hidden rounded-2xl bg-white shadow-lg"
-              style={{
-                border: "1px solid rgba(0, 166, 81, 0.08)"
-              }}
+              style={{ border: "1px solid rgba(0, 166, 81, 0.08)" }}
             >
               <div
                 className="h-2"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #00A651 0%, #FF8C42 100%)"
-                }}
+                style={{ background: "linear-gradient(90deg, #00A651 0%, #FF8C42 100%)" }}
               />
 
               <div className="p-8">
@@ -159,13 +136,7 @@ export function AboutUs() {
                     className="flex h-12 w-12 items-center justify-center rounded-xl"
                     style={{ backgroundColor: "rgba(0, 166, 81, 0.1)" }}
                   >
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      stroke="#00A651"
-                      strokeWidth="2.5"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="h-6 w-6" fill="none" stroke="#00A651" strokeWidth="2.5" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -200,22 +171,10 @@ export function AboutUs() {
                     >
                       <div
                         className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full"
-                        style={{
-                          backgroundColor: "rgba(0, 166, 81, 0.15)"
-                        }}
+                        style={{ backgroundColor: "rgba(0, 166, 81, 0.15)" }}
                       >
-                        <svg
-                          className="h-4 w-4"
-                          fill="none"
-                          stroke="#00A651"
-                          strokeWidth="3"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
+                        <svg className="h-4 w-4" fill="none" stroke="#00A651" strokeWidth="3" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
 

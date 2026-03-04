@@ -225,7 +225,7 @@ export function ContactUs() {
                   required
                   type="text"
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-[#003087] focus:outline-none"
-                  placeholder="Aileen Naa Ayele Aryeetey"
+                  placeholder="Naa Ayele Aryeetey"
                   style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}
                 />
               </div>
@@ -249,7 +249,7 @@ export function ContactUs() {
               <div>
                 <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: "14px", fontWeight: "600", color: "#0c121c" }}>
                   Subject
-                </label>
+                </label>https://cdn2.hubspot.net/hubfs/364433/2020_01_11_ArrMtS03_A_medium.jpg
                 <input
                   name="subject"
                   value={formData.subject}
