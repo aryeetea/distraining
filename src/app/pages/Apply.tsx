@@ -408,97 +408,114 @@ There is a non-refundable registration fee for cancellations within seven days.`
                         color: "#003087"
                       }}
                     >
-                      Educational History
+                      Level of Education
                     </h3>
 
-                    <div className="mt-4 grid gap-4 md:grid-cols-3">
-                      <input
+                    <div className="mt-4">
+                      <label
+                        className="mb-2 block"
+                        style={{
+                          fontFamily: "Rubik, sans-serif",
+                          fontSize: 14,
+                          fontWeight: 700,
+                          color: "#0c121c"
+                        }}
+                      >
+                        Highest Education Level <span style={{ color: "#FF8C42" }}>*</span>
+                      </label>
+                      <select
                         name="highSchoolName"
                         value={formData.highSchoolName}
                         onChange={handleChange}
-                        type="text"
-                        placeholder="GED / High School Attended"
-                        className="rounded-lg border p-3 focus:outline-none"
-                        style={{
-                          borderColor: "rgba(0,0,0,0.15)",
-                          fontFamily: "Rubik, sans-serif"
-                        }}
-                      />
-                      <input
-                        name="highSchoolCity"
-                        value={formData.highSchoolCity}
-                        onChange={handleChange}
-                        type="text"
-                        placeholder="City"
-                        className="rounded-lg border p-3 focus:outline-none"
-                        style={{
-                          borderColor: "rgba(0,0,0,0.15)",
-                          fontFamily: "Rubik, sans-serif"
-                        }}
-                      />
-                      <input
-                        name="highSchoolState"
-                        value={formData.highSchoolState}
-                        onChange={handleChange}
-                        type="text"
-                        placeholder="State"
-                        className="rounded-lg border p-3 focus:outline-none"
-                        style={{
-                          borderColor: "rgba(0,0,0,0.15)",
-                          fontFamily: "Rubik, sans-serif"
-                        }}
-                      />
+                        required
+                        className="w-full rounded-lg border px-3 py-2 focus:outline-none"
+                        style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif" }}
+                      >
+                        <option value="">Select level</option>
+                        <option value="High School/GED">High School/GED</option>
+                        <option value="Some College">Some College</option>
+                        <option value="Associate Degree">Associate Degree</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Masters Degree">Master's Degree</option>
+                        <option value="Other">Other</option>
+                      </select>
                     </div>
 
-                    <div className="mt-4 grid gap-4 md:grid-cols-3">
-                      <input
+                    {formData.highSchoolName && (
+                      <div className="mt-4">
+                        <label
+                          className="mb-2 block"
+                          style={{
+                            fontFamily: "Rubik, sans-serif",
+                            fontSize: 14,
+                            fontWeight: 700,
+                            color: "#0c121c"
+                          }}
+                        >
+                          {formData.highSchoolName === "Other"
+                            ? "Please specify your level of education"
+                            : `School / Institution for ${formData.highSchoolName}`}
+                        </label>
+                        <input
+                          name="highSchoolCity"
+                          value={formData.highSchoolCity}
+                          onChange={handleChange}
+                          type="text"
+                          placeholder="Enter school or program name"
+                          className="w-full rounded-lg border px-3 py-2 focus:outline-none"
+                          style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif" }}
+                        />
+                      </div>
+                    )}
+
+                    <div className="mt-4">
+                      <label
+                        className="mb-2 block"
+                        style={{
+                          fontFamily: "Rubik, sans-serif",
+                          fontSize: 14,
+                          fontWeight: 700,
+                          color: "#0c121c"
+                        }}
+                      >
+                        Preferred Course Format
+                      </label>
+                      <select
                         name="collegeName"
                         value={formData.collegeName}
                         onChange={handleChange}
-                        type="text"
-                        placeholder="College Attended"
-                        className="rounded-lg border p-3 focus:outline-none"
-                        style={{
-                          borderColor: "rgba(0,0,0,0.15)",
-                          fontFamily: "Rubik, sans-serif"
-                        }}
-                      />
-                      <input
-                        name="collegeCity"
-                        value={formData.collegeCity}
-                        onChange={handleChange}
-                        type="text"
-                        placeholder="City"
-                        className="rounded-lg border p-3 focus:outline-none"
-                        style={{
-                          borderColor: "rgba(0,0,0,0.15)",
-                          fontFamily: "Rubik, sans-serif"
-                        }}
-                      />
-                      <input
-                        name="collegeState"
-                        value={formData.collegeState}
-                        onChange={handleChange}
-                        type="text"
-                        placeholder="State"
-                        className="rounded-lg border p-3 focus:outline-none"
-                        style={{
-                          borderColor: "rgba(0,0,0,0.15)",
-                          fontFamily: "Rubik, sans-serif"
-                        }}
-                      />
+                        className="w-full rounded-lg border px-3 py-2 focus:outline-none"
+                        style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif" }}
+                      >
+                        <option value="">Select option</option>
+                        <option value="Hybrid (Online + In-person)">Hybrid (Online + In-person)</option>
+                        <option value="Fully In-person">Fully In-person</option>
+                      </select>
                     </div>
 
                     <div className="mt-4">
-                      <input
-                        name="dateOfApplication"
-                        value={formData.dateOfApplication}
+                      <label
+                        className="mb-2 block"
+                        style={{
+                          fontFamily: "Rubik, sans-serif",
+                          fontSize: 14,
+                          fontWeight: 700,
+                          color: "#0c121c"
+                        }}
+                      >
+                        Additional Notes (Optional)
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
                         onChange={handleChange}
-                        type="date"
-                        className="w-full rounded-lg border p-3 focus:outline-none"
+                        rows={4}
+                        placeholder="Any questions or schedule notes you want us to know."
+                        className="w-full rounded-lg border px-3 py-2 focus:outline-none"
                         style={{
                           borderColor: "rgba(0,0,0,0.15)",
-                          fontFamily: "Rubik, sans-serif"
+                          fontFamily: "Rubik, sans-serif",
+                          fontSize: 14
                         }}
                       />
                     </div>
@@ -527,34 +544,6 @@ There is a non-refundable registration fee for cancellations within seven days.`
                         borderColor: "rgba(0,0,0,0.15)",
                         fontFamily: "Rubik, sans-serif",
                         fontSize: 15
-                      }}
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      className="mb-2 block"
-                      style={{
-                        fontFamily: "Rubik, sans-serif",
-                        fontSize: 14,
-                        fontWeight: 700,
-                        color: "#0c121c"
-                      }}
-                    >
-                      Message (optional)
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={5}
-                      placeholder="Tell us anything we should know."
-                      className="w-full rounded-lg border px-4 py-3 focus:outline-none"
-                      style={{
-                        borderColor: "rgba(0,0,0,0.15)",
-                        fontFamily: "Rubik, sans-serif",
-                        fontSize: 15,
-                        lineHeight: 1.7
                       }}
                     />
                   </div>

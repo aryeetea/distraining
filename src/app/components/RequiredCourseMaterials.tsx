@@ -10,21 +10,21 @@ export function RequiredCourseMaterials() {
       title: "Workbook & Practice Material",
       subtitle: "Used for guided review",
       image:
-        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR8HKMex19HdWIjqaDKqdqvpvIWzSRQBV-H-kmdPdVl5IBsxtmpQwF1Cg5Y0WIJTqkQ0B5Hqo0"
+        "https://m.media-amazon.com/images/I/41FJBo1MPaL._SY522_.jpg"
     },
     {
       title: "Reference & Study Support",
       subtitle: "Helpful for certification prep",
       image:
-        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ6yol542UAulHSeeqTM7t-9pCp7D9UP31kTu9PogFQlvH8g-URyuuU6__rQKzdPEMPo6U4nXE"
+        "https://m.media-amazon.com/images/I/51t8KpDfH0L._SY522_.jpg"
     }
   ];
 
   return (
-    <section className="mb-12">
+    <section className="mt-12 mb-12">
       <div
         className="overflow-hidden rounded-2xl bg-white shadow-lg"
-        style={{ border: "1px solid rgba(255,140,66,0.10)" }}
+        style={{ border: "1px solid rgba(255,140,66,0.10)", padding: "0.1rem" }}
       >
         <div
           className="h-2"
