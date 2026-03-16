@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 function encode(data: Record<string, string>) {
   return Object.keys(data)
@@ -30,7 +31,6 @@ export function ContactUs() {
     setStatus("sending");
 
     try {
-      // Use current page path (helps when not hosted at "/")
       const res = await fetch(window.location.pathname, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -90,174 +90,193 @@ export function ContactUs() {
               Get In Touch
             </h2>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3
-                    className="mb-1"
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "16px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Address
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "Rubik, sans-serif",
-                      fontSize: "15px",
-                      lineHeight: "1.6",
-                      opacity: "0.9",
-                    }}
-                  >
-                    860 MELROSE AVENUE
-                    <br />
-                    Bronx NY, 10451
-                  </p>
+            <div className="space-y-5">
+              {/* Address */}
+              <div className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 rounded-full bg-white/20 p-3">
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <h3
+                      className="mb-1"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "16px",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Address
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "Rubik, sans-serif",
+                        fontSize: "15px",
+                        lineHeight: "1.7",
+                        opacity: "0.92",
+                      }}
+                    >
+                      860 Melrose Avenue
+                      <br />
+                      Bronx, NY 10451
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3
-                    className="mb-1"
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "16px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Phone
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "Rubik, sans-serif",
-                      fontSize: "15px",
-                      opacity: "0.9",
-                    }}
-                  >
-                    614-815-8070 or 929-922-0726
-                  </p>
+              {/* Phone */}
+              <div className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 rounded-full bg-white/20 p-3">
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <h3
+                      className="mb-2"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "16px",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Phone
+                    </h3>
+
+                    <div
+                      style={{
+                        fontFamily: "Rubik, sans-serif",
+                        fontSize: "15px",
+                        lineHeight: "1.8",
+                        opacity: "0.92",
+                      }}
+                    >
+                      <div>614-815-8070</div>
+                      <div>929-922-0726</div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3
-                    className="mb-1"
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "16px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Email
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "Rubik, sans-serif",
-                      fontSize: "15px",
-                      opacity: "0.9",
-                    }}
-                  >
-                    Dassterile@gmail.com
-                  </p>
+              {/* Email */}
+              <div className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 rounded-full bg-white/20 p-3">
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <h3
+                      className="mb-1"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "16px",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Email
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "Rubik, sans-serif",
+                        fontSize: "15px",
+                        opacity: "0.92",
+                      }}
+                    >
+                      Dassterile@gmail.com
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="mt-1 rounded-full bg-white/20 p-3">
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3
-                    className="mb-1"
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "16px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Office Hours
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "Rubik, sans-serif",
-                      fontSize: "15px",
-                      lineHeight: "1.6",
-                      opacity: "0.9",
-                    }}
-                  >
-                    Monday - Friday: 8:00 AM - 5:00 PM
-                    <br />
-                    Saturday: 9:00 AM - 4:00 PM
-                    <br />
-                    Sunday: Closed
-                  </p>
+              {/* Office Hours */}
+              <div className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 rounded-full bg-white/20 p-3">
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <h3
+                      className="mb-2"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "16px",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Office Hours
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "Rubik, sans-serif",
+                        fontSize: "15px",
+                        lineHeight: "1.8",
+                        opacity: "0.92",
+                      }}
+                    >
+                      Monday - Friday: 8:00 AM - 5:00 PM
+                      <br />
+                      Saturday: 9:00 AM - 4:00 PM
+                      <br />
+                      Sunday: Closed
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -451,6 +470,8 @@ export function ContactUs() {
             </form>
           </div>
         </div>
+
+        <RequiredCourseMaterials />
       </div>
     </div>
   );

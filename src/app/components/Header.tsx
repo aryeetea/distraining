@@ -20,6 +20,7 @@ const defaultNavLinks: NavLink[] = [
   { label: "About Us", href: "/about" },
   { label: "Events", href: "/events" },
   { label: "Courses", href: "/courses" },
+  { label: "Payment Plans", href: "/payment-plans" },
   { label: "FAQ", href: "/faq" }
   // ✅ Removed Contact Us from nav list (because button already exists)
 ];
@@ -97,7 +98,7 @@ export function Header({
                 textTransform: "uppercase"
               }}
             >
-              Sterile Processing Training Centre
+              Sterile Processing Training Center
             </div>
           </Link>
 

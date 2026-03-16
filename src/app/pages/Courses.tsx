@@ -1,6 +1,7 @@
-// src/pages/Courses.tsx
+// src/app/pages/Courses.tsx
 import { useState } from "react";
 import { Link } from "react-router";
+import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 type Chapter = { heading: string; points: string[] };
 type WeekBlock = { week: string; title: string; chapters: Chapter[] };
@@ -9,9 +10,9 @@ export function Courses() {
   // ✅ When your client gives you a payment link, paste it here.
   const PAYMENT_LINK = ""; // leave empty for now
 
-  // ✅ Zelle info (ONLY shown via the Zelle button pop-up)
+  // ✅ Zelle info
   const ZELLE_RECIPIENT = "DAS Training";
-  const ZELLE_SEND_TO = "Dassterile@gmail.com";
+  const ZELLE_SEND_TO = "dassterile@gmail.com";
   const ZELLE_MEMO = "Student Full Name + Program Name";
 
   const theme = {
@@ -30,6 +31,34 @@ export function Courses() {
     level: "Standard",
     description:
       "An 8-week program designed to prepare students for real healthcare environments. Learn the sterile processing workflow from decontamination through sterilization, storage, and quality assurance while following infection prevention and safety standards."
+  };
+
+  const showZelleInfo = () => {
+    alert(`Pay with Zelle
+
+Recipient: ${ZELLE_RECIPIENT}
+Email: ${ZELLE_SEND_TO}
+Memo: ${ZELLE_MEMO}
+
+Please include your full name and program name in the memo when sending payment.`);
+  };
+
+  const showPaymentOptions = () => {
+    alert(`WEEKLY PAYMENT PLAN - FOR PAY AS YOU GO CANDIDATE
+
+Registration: $1,000
+
+Week 1: $250
+Week 2: $250
+Week 3: $250
+Week 4: $250
+Week 5: $250
+Week 6: $250
+
+Total Payment: $2,500
+
+Note:
+All applicants must complete full payment before the eight weeks in order to take the final DAS Sterile Certification Test.`);
   };
 
   // ✅ Course breakdown (click to expand) — CLOSED by default
@@ -284,7 +313,7 @@ export function Courses() {
       }}
       onClick={() =>
         alert(
-          "Online payment link coming soon.\n\nFor now, please pay via Zelle or contact us for payment options."
+          "Online payment link coming soon.\n\nFor now, please use Pay with Zelle or check the Payment Options."
         )
       }
     >
@@ -292,7 +321,7 @@ export function Courses() {
     </button>
   );
 
-  const zelleButton = (
+  const paymentOptionsButton = (
     <button
       type="button"
       className="w-full rounded-full py-3 text-center text-white transition-opacity hover:opacity-90"
@@ -303,11 +332,7 @@ export function Courses() {
         fontFamily: "Rubik, sans-serif",
         boxShadow: "0 10px 22px rgba(0, 48, 135, 0.18)"
       }}
-      onClick={() =>
-        alert(
-          `Pay with Zelle:\n\nRecipient: ${ZELLE_RECIPIENT}\nSend to: ${ZELLE_SEND_TO}\nMemo: ${ZELLE_MEMO}`
-        )
-      }
+      onClick={showZelleInfo}
     >
       Pay with Zelle
     </button>
@@ -355,7 +380,6 @@ export function Courses() {
             />
 
             <div className="p-6 md:p-8">
-              {/* badges + CTAs */}
               <div className="mb-7 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div className="flex flex-wrap items-center gap-2">
                   <span
@@ -386,7 +410,6 @@ export function Courses() {
                   </span>
                 </div>
 
-                {/* ✅ FIXED SHAPE: consistent button width + same height */}
                 <div className="grid w-full gap-3 sm:grid-cols-2 md:w-auto">
                   <Link
                     to="/apply"
@@ -419,7 +442,6 @@ export function Courses() {
                 </div>
               </div>
 
-              {/* title + description */}
               <h2
                 className="mb-3"
                 style={{
@@ -445,7 +467,6 @@ export function Courses() {
                 {course.description}
               </p>
 
-              {/* Quick Highlights */}
               <div
                 className="rounded-2xl p-6"
                 style={{ backgroundColor: theme.soft, border: `1px solid ${theme.border}` }}
@@ -482,7 +503,7 @@ export function Courses() {
                     { label: "Format", value: "Instructor-led + hands-on practice" },
                     { label: "Schedule", value: "2 online (weekday) + 1 in-person (weekend)" },
                     { label: "Duration", value: "8 weeks" },
-                    { label: "Outcome", value: "Certificate of training + certification pathway readiness" },
+                    { label: "Outcome", value: "Certificate of training + certification pathway readiness" }
                   ].map((h, i) => (
                     <div
                       key={i}
@@ -520,7 +541,6 @@ export function Courses() {
                 </div>
               </div>
 
-              {/* ✅ Tuition MOVED TO LEFT (under highlights) */}
               <div
                 className="mt-6 overflow-hidden rounded-2xl bg-white shadow-sm"
                 style={{ border: `1px solid ${theme.border}` }}
@@ -553,17 +573,17 @@ export function Courses() {
                       opacity: 0.78
                     }}
                   >
-                    After submitting your application, you can pay tuition online (when available) or pay with Zelle.
-                    If you have payment questions, contact our team.
+                    After submitting your application, you can pay tuition online when available or review all payment options.
                   </p>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
                     {payOnlineButton}
-                    {zelleButton}
+                    {paymentOptionsButton}
                   </div>
 
-                  <Link
-                    to="/contact"
+                  <button
+                    type="button"
+                    onClick={showPaymentOptions}
                     className="mt-3 inline-block w-full rounded-full py-3 text-center transition-opacity hover:opacity-90"
                     style={{
                       backgroundColor: "white",
@@ -574,8 +594,8 @@ export function Courses() {
                       fontFamily: "Rubik, sans-serif"
                     }}
                   >
-                    Ask About Payment
-                  </Link>
+                    Payment Options
+                  </button>
 
                   <p
                     className="mt-4"
@@ -591,7 +611,6 @@ export function Courses() {
                 </div>
               </div>
 
-              {/* Who Should Enroll + Have Questions */}
               <div className="mt-6 grid gap-6 md:grid-cols-2">
                 <div
                   className="rounded-2xl bg-white p-6"
@@ -672,9 +691,7 @@ export function Courses() {
             </div>
           </div>
 
-          {/* RIGHT */}
           <div className="space-y-6">
-            {/* Course Breakdown */}
             <div
               className="rounded-2xl p-6"
               style={{
@@ -809,7 +826,6 @@ export function Courses() {
               </div>
             </div>
 
-            {/* Completion Outcome */}
             <div
               className="rounded-2xl p-6 text-white"
               style={{
@@ -866,7 +882,8 @@ export function Courses() {
             </div>
           </div>
         </div>
-        {/* end grid */}
+
+        <RequiredCourseMaterials />
       </div>
     </div>
   );

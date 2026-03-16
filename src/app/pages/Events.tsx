@@ -1,3 +1,5 @@
+import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
+
 export function Events() {
   const events = [
     {
@@ -108,6 +110,8 @@ export function Events() {
             Want the latest intake details? Contact us and we’ll guide you based on your availability.
           </p>
         </div>
+
+        <RequiredCourseMaterials />
       </div>
     </div>
   );
