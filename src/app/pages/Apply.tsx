@@ -29,6 +29,9 @@ export function Apply() {
     educationStatus: "",
     dateOfApplication: "",
     message: "",
+    paymentPlan: "",
+    applicantSignature: "",
+    applicantEmail: "",
     agree: false
   };
 
@@ -41,6 +44,9 @@ export function Apply() {
       formData.email.trim().length > 3 &&
       formData.phone.trim().length > 6 &&
       formData.cityState.trim().length > 2 &&
+      formData.paymentPlan.trim().length > 0 &&
+      formData.applicantSignature.trim().length > 1 &&
+      formData.applicantEmail.trim().length > 3 &&
       formData.agree === true
     );
   }, [formData]);
@@ -204,6 +210,7 @@ There is a non-refundable registration fee for cancellations within seven days.`
           >
             Fill out the application below and our team will reach out with next steps.
           </p>
+
         </div>
 
         <div className="grid gap-8 lg:grid-cols-3">
@@ -568,6 +575,97 @@ There is a non-refundable registration fee for cancellations within seven days.`
                           fontSize: 14
                         }}
                       />
+                    </div>
+
+                    <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontWeight: 800,
+                          fontSize: 15,
+                          color: "#003087"
+                        }}
+                      >
+                        PLEASE CHOOSE AND CHECK ONE OF THE BELOW PAYMENT PLANS
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "Rubik, sans-serif",
+                          fontSize: 13,
+                          color: "#0c121c",
+                          marginTop: 4
+                        }}
+                      >
+                        I hereby agree to the terms and conditions herein and agree to pay DAS STERILE PROCESSING CENTER $2,500.00 by one of the following plans:
+                      </p>
+                      <div className="mt-2 space-y-2">
+                        <label className="flex items-start gap-2">
+                          <input
+                            type="radio"
+                            name="paymentPlan"
+                            value="one_time"
+                            checked={formData.paymentPlan === "one_time"}
+                            onChange={handleChange}
+                            className="mt-1"
+                          />
+                          <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14 }}>
+                            1. ONE TIME DISCOUNTED PAYMENT OF: $2,450.00
+                          </span>
+                        </label>
+                        <label className="flex items-start gap-2">
+                          <input
+                            type="radio"
+                            name="paymentPlan"
+                            value="pay_as_you_go"
+                            checked={formData.paymentPlan === "pay_as_you_go"}
+                            onChange={handleChange}
+                            className="mt-1"
+                          />
+                          <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14 }}>
+                            2. PAY AS YOU GO: $2,500.00 (minimum $1,000 down payment, weekly installment payment of $250 before the conclusion of class)
+                          </span>
+                        </label>
+                      </div>
+                      <p
+                        className="mt-2"
+                        style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, color: "#0c121c" }}
+                      >
+                        NOTE: there is a non-refundable registration fee for all cancellations from the Test Prep within seven days.
+                      </p>
+                      <div className="mt-3">
+                        <label
+                          className="mb-1 block"
+                          style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}
+                        >
+                          Applicant’s signature <span style={{ color: "#FF8C42" }}>*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="applicantSignature"
+                          value={formData.applicantSignature}
+                          onChange={handleChange}
+                          placeholder="Type your full name"
+                          className="w-full rounded-lg border px-3 py-2 focus:outline-none"
+                          style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif" }}
+                        />
+                      </div>
+                      <div className="mt-3">
+                        <label
+                          className="mb-1 block"
+                          style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}
+                        >
+                          Applicant’s Email address <span style={{ color: "#FF8C42" }}>*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="applicantEmail"
+                          value={formData.applicantEmail}
+                          onChange={handleChange}
+                          placeholder="applicant@example.com"
+                          className="w-full rounded-lg border px-3 py-2 focus:outline-none"
+                          style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif" }}
+                        />
+                      </div>
                     </div>
                   </div>
 

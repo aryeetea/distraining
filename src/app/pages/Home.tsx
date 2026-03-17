@@ -76,141 +76,203 @@ export function Home() {
         backgroundAlt="Surgical Instruments"
       />
 
-      {/* Reviews */}
+      {/* Overview + Certification side by side, Reviews underneath */}
       <section className="py-16 md:py-20" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-[1100px] px-4 md:px-8">
-          <div className="mb-10 text-center">
-            <h2
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                fontSize: "clamp(28px,4vw,36px)",
-                fontWeight: "700",
-                color: "#003087"
-              }}
-            >
-              What Our Students Say
-            </h2>
-
-            <p
-              style={{
-                fontFamily: "Rubik, sans-serif",
-                fontSize: "16px",
-                opacity: 0.7,
-                color: "#0c121c"
-              }}
-            >
-              Real feedback from graduates of our program
-            </p>
-          </div>
-
-          <div className="relative">
-            <div
-              className="rounded-2xl p-10 text-center shadow-lg"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(0,48,135,0.05) 0%, rgba(0,166,81,0.05) 100%)",
-                border: "1px solid rgba(0,48,135,0.1)"
-              }}
-            >
-              <div
-                className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full"
-                style={{
-                  background: "linear-gradient(135deg, #003087 0%, #00A651 100%)",
-                  color: "#ffffff",
-                  fontFamily: "Poppins, sans-serif",
-                  fontSize: "30px",
-                  fontWeight: 800,
-                  boxShadow: "0 10px 20px rgba(0,48,135,0.18)"
-                }}
-              >
-                {reviews[currentReview].name.charAt(0)}
-              </div>
-
-              <p
-                style={{
-                  fontFamily: "Rubik, sans-serif",
-                  fontSize: "18px",
-                  lineHeight: "1.8",
-                  color: "#0c121c",
-                  opacity: 0.85,
-                  maxWidth: "700px",
-                  margin: "0 auto",
-                  minHeight: "130px"
-                }}
-              >
-                “{reviews[currentReview].text}”
-              </p>
-
-              <div className="mt-6">
-                <div
+          <div className="grid gap-6 lg:grid-cols-2">
+            {/* Overview */}
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between">
+              <div>
+                <h2
                   style={{
                     fontFamily: "Poppins, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "18px",
+                    fontSize: "clamp(24px, 3vw, 30px)",
+                    fontWeight: 800,
                     color: "#003087"
                   }}
                 >
-                  {reviews[currentReview].name}
-                </div>
-
-                <div
-                  style={{
-                    fontFamily: "Rubik, sans-serif",
-                    fontSize: "14px",
-                    opacity: 0.65,
-                    color: "#0c121c"
-                  }}
+                  Overview
+                </h2>
+                <p
+                  className="mt-3"
+                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
                 >
-                  {reviews[currentReview].role}
-                </div>
+                  Thank you for your interest in the Central Sterile Processing Certificate Program at DAS Central Sterile Processing Training Center. This packet provides information regarding admission procedures and required courses.
+                </p>
+                <p
+                  className="mt-2"
+                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
+                >
+                  The Certificate in Central Sterile Processing is an 8-10 week program. Classes are scheduled both online and in the classroom. Enrollment is limited and competitive.
+                </p>
+                <p
+                  className="mt-2"
+                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
+                >
+                  Upon successful completion of the program the student is awarded a Certificate of completion.
+                </p>
               </div>
             </div>
-
-            {/* arrows */}
-            <button
-              type="button"
-              onClick={goToPrev}
-              className="absolute left-[-8px] top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full shadow-md transition-opacity hover:opacity-90 md:left-[-20px]"
-              style={{
-                background: "#ffffff",
-                border: "1px solid rgba(0,48,135,0.12)",
-                color: "#003087"
-              }}
-              aria-label="Previous review"
-            >
-              ‹
-            </button>
-
-            <button
-              type="button"
-              onClick={goToNext}
-              className="absolute right-[-8px] top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full shadow-md transition-opacity hover:opacity-90 md:right-[-20px]"
-              style={{
-                background: "#ffffff",
-                border: "1px solid rgba(0,48,135,0.12)",
-                color: "#003087"
-              }}
-              aria-label="Next review"
-            >
-              ›
-            </button>
-
-            {/* dots */}
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
-              {reviews.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => setCurrentReview(index)}
-                  className="h-3 w-3 rounded-full transition-all"
+            {/* Certification */}
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between">
+              <div>
+                <h3
                   style={{
-                    backgroundColor:
-                      currentReview === index ? "#003087" : "rgba(0, 48, 135, 0.20)",
-                    transform: currentReview === index ? "scale(1.1)" : "scale(1)"
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: 18,
+                    fontWeight: 800,
+                    color: "#003087"
                   }}
-                  aria-label={`Go to review ${index + 1}`}
-                />
-              ))}
+                >
+                  Certification
+                </h3>
+                <p
+                  className="mt-2"
+                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
+                >
+                  Graduates of this program are eligible to sit for the Certified Registered Central Service Technician (CRCST) National Exam administered by the Healthcare Sterile Processing Association (HSPA).
+                </p>
+                <p
+                  className="mt-2"
+                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
+                >
+                  All students passing the CRCST exam are recognized as individuals who have demonstrated the experience, knowledge and skills necessary to provide competent services as a Central Service Technician, and are to use the title Certified Registered Central Service Technician.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* What Our Students Say - underneath */}
+          <div className="mt-12">
+            <div className="mb-8 text-center">
+              <h2
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "clamp(28px,4vw,36px)",
+                  fontWeight: "700",
+                  color: "#003087"
+                }}
+              >
+                What Our Students Say
+              </h2>
+              <p
+                style={{
+                  fontFamily: "Rubik, sans-serif",
+                  fontSize: "16px",
+                  opacity: 0.7,
+                  color: "#0c121c"
+                }}
+              >
+                Real feedback from graduates of our program
+              </p>
+            </div>
+
+            <div className="relative max-w-xl mx-auto">
+              <div
+                className="rounded-2xl p-10 text-center shadow-lg"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(0,48,135,0.05) 0%, rgba(0,166,81,0.05) 100%)",
+                  border: "1px solid rgba(0,48,135,0.1)"
+                }}
+              >
+                <div
+                  className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full"
+                  style={{
+                    background: "linear-gradient(135deg, #003087 0%, #00A651 100%)",
+                    color: "#ffffff",
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "30px",
+                    fontWeight: 800,
+                    boxShadow: "0 10px 20px rgba(0,48,135,0.18)"
+                  }}
+                >
+                  {reviews[currentReview].name.charAt(0)}
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: "Rubik, sans-serif",
+                    fontSize: "18px",
+                    lineHeight: "1.8",
+                    color: "#0c121c",
+                    opacity: 0.85,
+                    maxWidth: "700px",
+                    margin: "0 auto",
+                    minHeight: "130px"
+                  }}
+                >
+                  “{reviews[currentReview].text}”
+                </p>
+
+                <div className="mt-6">
+                  <div
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontWeight: 700,
+                      fontSize: "18px",
+                      color: "#003087"
+                    }}
+                  >
+                    {reviews[currentReview].name}
+                  </div>
+
+                  <div
+                    style={{
+                      fontFamily: "Rubik, sans-serif",
+                      fontSize: "14px",
+                      opacity: 0.65,
+                      color: "#0c121c"
+                    }}
+                  >
+                    {reviews[currentReview].role}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={goToPrev}
+                className="absolute left-[-8px] top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full shadow-md transition-opacity hover:opacity-90 md:left-[-20px]"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid rgba(0,48,135,0.12)",
+                  color: "#003087"
+                }}
+                aria-label="Previous review"
+              >
+                ‹
+              </button>
+
+              <button
+                type="button"
+                onClick={goToNext}
+                className="absolute right-[-8px] top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full shadow-md transition-opacity hover:opacity-90 md:right-[-20px]"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid rgba(0,48,135,0.12)",
+                  color: "#003087"
+                }}
+                aria-label="Next review"
+              >
+                ›
+              </button>
+
+              <div className="mt-6 flex flex-wrap justify-center gap-2">
+                {reviews.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setCurrentReview(index)}
+                    className="h-3 w-3 rounded-full transition-all"
+                    style={{
+                      backgroundColor:
+                        currentReview === index ? "#003087" : "rgba(0, 48, 135, 0.20)",
+                      transform: currentReview === index ? "scale(1.1)" : "scale(1)"
+                    }}
+                    aria-label={`Go to review ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
