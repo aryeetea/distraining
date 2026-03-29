@@ -48,6 +48,30 @@ export function Home() {
     }
   ];
 
+  const events = [
+    {
+      title: "Enrollment & Intake (Ongoing)",
+      badge: "Always Available",
+      description:
+        "Online enrollment is available anytime. In-person enrollment and onboarding are scheduled regularly based on class readiness.",
+      color: "#FF8C42"
+    },
+    {
+      title: "Tuition, Orientation & Payment Options",
+      badge: "Flexible",
+      description:
+        "Tuition can be started once your application is submitted and reviewed. We offer online payment (when available) and Zelle options for convenience.",
+      color: "#003087"
+    },
+    {
+      title: "Next Cohort Registration + Final Exam Planning",
+      badge: "Rolling",
+      description:
+        "Registration for the next batch begins as current students prepare to complete the program. Final review and exam scheduling are organized in advance.",
+      color: "#00A651"
+    }
+  ];
+
   const [currentReview, setCurrentReview] = useState(0);
 
   useEffect(() => {
@@ -69,80 +93,24 @@ export function Home() {
   return (
     <>
       <HeroSection
-        title="DAS Sterile Processing Training Center"
+        title={
+          <>
+            <span style={{ color: "#FF8C42" }}>D</span>
+            <span style={{ color: "#003087" }}>A</span>
+            <span style={{ color: "#00A651" }}>S</span>
+            {" Sterile Processing Training Center"}
+          </>
+        }
         subtitle="Registration is now open."
         ctaText="Apply for Admissions"
         backgroundImage="https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/2110/6883265/1000w_q95.jpg"
         backgroundAlt="Surgical Instruments"
       />
 
-      {/* Overview + Certification side by side, Reviews underneath */}
+      {/* What Our Students Say */}
       <section className="py-16 md:py-20" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-[1100px] px-4 md:px-8">
-          <div className="grid gap-6 lg:grid-cols-2">
-            {/* Overview */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between">
-              <div>
-                <h2
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontSize: "clamp(24px, 3vw, 30px)",
-                    fontWeight: 800,
-                    color: "#003087"
-                  }}
-                >
-                  Overview
-                </h2>
-                <p
-                  className="mt-3"
-                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
-                >
-                  Thank you for your interest in the Central Sterile Processing Certificate Program at DAS Central Sterile Processing Training Center. This packet provides information regarding admission procedures and required courses.
-                </p>
-                <p
-                  className="mt-2"
-                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
-                >
-                  The Certificate in Central Sterile Processing is an 8-10 week program. Classes are scheduled both online and in the classroom. Enrollment is limited and competitive.
-                </p>
-                <p
-                  className="mt-2"
-                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
-                >
-                  Upon successful completion of the program the student is awarded a Certificate of completion.
-                </p>
-              </div>
-            </div>
-            {/* Certification */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between">
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontSize: 18,
-                    fontWeight: 800,
-                    color: "#003087"
-                  }}
-                >
-                  Certification
-                </h3>
-                <p
-                  className="mt-2"
-                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
-                >
-                  Graduates of this program are eligible to sit for the Certified Registered Central Service Technician (CRCST) National Exam administered by the Healthcare Sterile Processing Association (HSPA).
-                </p>
-                <p
-                  className="mt-2"
-                  style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c" }}
-                >
-                  All students passing the CRCST exam are recognized as individuals who have demonstrated the experience, knowledge and skills necessary to provide competent services as a Central Service Technician, and are to use the title Certified Registered Central Service Technician.
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* What Our Students Say - underneath */}
-          <div className="mt-12">
+          <div>
             <div className="mb-8 text-center">
               <h2
                 style={{
@@ -383,6 +351,94 @@ export function Home() {
                 Contact Us
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Events & Updates */}
+      <section className="py-12 md:py-20" style={{ backgroundColor: "#ffffff" }}>
+        <div className="mx-auto max-w-[1200px] px-4 md:px-8">
+          <h2
+            className="mb-4 text-center"
+            style={{
+              fontFamily: "Poppins, sans-serif",
+              fontSize: "clamp(32px, 5vw, 48px)",
+              fontWeight: "800",
+              color: "#003087"
+            }}
+          >
+            Events & Updates
+          </h2>
+
+          <p
+            className="mb-12 text-center"
+            style={{
+              fontFamily: "Rubik, sans-serif",
+              fontSize: "clamp(16px, 2vw, 18px)",
+              color: "#0c121c",
+              opacity: "0.7"
+            }}
+          >
+            Rolling updates so you won't need constant date changes — everything stays relevant year-round.
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {events.map((event, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-2xl bg-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+                style={{ border: "1px solid rgba(0, 48, 135, 0.08)" }}
+              >
+                <div className="h-2" style={{ backgroundColor: event.color }} />
+
+                <div className="p-6">
+                  <div
+                    className="mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-white"
+                    style={{
+                      backgroundColor: event.color,
+                      fontSize: "13px",
+                      fontWeight: "700",
+                      fontFamily: "Rubik, sans-serif"
+                    }}
+                  >
+                    {event.badge}
+                  </div>
+
+                  <h3
+                    className="mb-3"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "22px",
+                      fontWeight: "800",
+                      color: "#0c121c"
+                    }}
+                  >
+                    {event.title}
+                  </h3>
+
+                  <p
+                    style={{
+                      fontFamily: "Rubik, sans-serif",
+                      fontSize: "15px",
+                      lineHeight: "1.6",
+                      color: "#0c121c",
+                      opacity: "0.82"
+                    }}
+                  >
+                    {event.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="mt-10 rounded-2xl bg-white p-6 text-center shadow-md"
+            style={{ border: "1px solid rgba(0, 48, 135, 0.08)" }}
+          >
+            <p style={{ fontFamily: "Rubik, sans-serif", opacity: 0.75, color: "#0c121c" }}>
+              Want the latest intake details? Contact us and we'll guide you based on your availability.
+            </p>
           </div>
         </div>
       </section>

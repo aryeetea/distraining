@@ -354,7 +354,7 @@ All applicants must complete full payment before the eight weeks in order to tak
         </h1>
 
         <p
-          className="mb-12 text-center"
+          className="mb-10 text-center"
           style={{
             fontFamily: "Rubik, sans-serif",
             fontSize: "clamp(16px, 2vw, 18px)",
@@ -365,6 +365,69 @@ All applicants must complete full payment before the eight weeks in order to tak
         >
           Professional sterile processing training designed for real-world healthcare environments.
         </p>
+
+        {/* Overview + Certification */}
+        <div className="mb-12 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between">
+            <div>
+              <h2
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "clamp(22px, 2.5vw, 28px)",
+                  fontWeight: 800,
+                  color: theme.navy
+                }}
+              >
+                Program Overview
+              </h2>
+              <p
+                className="mt-3"
+                style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.75, color: theme.text }}
+              >
+                Thank you for your interest in the Central Sterile Processing Certificate Program at DAS Central Sterile Processing Training Center. This packet provides information regarding admission procedures and required courses.
+              </p>
+              <p
+                className="mt-2"
+                style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.75, color: theme.text }}
+              >
+                The Certificate in Central Sterile Processing is an 8–10 week program. Classes are scheduled both online and in the classroom. Enrollment is limited and competitive.
+              </p>
+              <p
+                className="mt-2"
+                style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.75, color: theme.text }}
+              >
+                Upon successful completion of the program, each student is awarded a Certificate of Completion.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between">
+            <div>
+              <h2
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "clamp(22px, 2.5vw, 28px)",
+                  fontWeight: 800,
+                  color: theme.navy
+                }}
+              >
+                Certification
+              </h2>
+              <p
+                className="mt-3"
+                style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.75, color: theme.text }}
+              >
+                Graduates of this program are eligible to sit for the Certified Registered Central Service Technician (CRCST) National Exam administered by the Healthcare Sterile Processing Association (HSPA).
+              </p>
+              <p
+                className="mt-2"
+                style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.75, color: theme.text }}
+              >
+                All students passing the CRCST exam are recognized as individuals who have demonstrated the experience, knowledge, and skills necessary to provide competent services as a Central Service Technician, and are to use the title Certified Registered Central Service Technician.
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="grid gap-8 lg:grid-cols-3">
           {/* LEFT */}

@@ -2,7 +2,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useNavigate } from 'react-router';
 
 interface HeroSectionProps {
-  title: string;
+  title: React.ReactNode;
   subtitle: string;
   ctaText: string;
   onCtaClick?: () => void;
