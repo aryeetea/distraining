@@ -7,42 +7,42 @@ import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 export function Home() {
   const reviews = [
     {
-      name: "Danielle Johnson",
+      name: "Ama Boakyewaa",
       role: "Graduate",
       text: "This program gave me the confidence and hands-on knowledge I needed. The instructors explained everything clearly and I felt ready to enter the field."
     },
     {
-      name: "Marcus Williams",
+      name: "Kwaku Ansah",
       role: "Former Student",
       text: "The training was very organized and practical. I learned real sterile processing workflows that helped me understand the job."
     },
     {
-      name: "Aisha Thompson",
+      name: "Silva Benewaa",
       role: "Graduate",
       text: "The instructors were supportive and patient. I appreciated how professional the program was and how focused it was on real healthcare standards."
     },
     {
-      name: "Jordan Brown",
+      name: "Naana Gyamfi",
       role: "Student",
       text: "The lessons were clear, structured, and easy to follow. I would definitely recommend this program to anyone interested in sterile processing."
     },
     {
-      name: "Brianna Davis",
+      name: "Kofi Mensah",
       role: "Graduate",
       text: "I liked that the program was detailed but still easy to follow. It helped me build confidence and understand what to expect in real work settings."
     },
     {
-      name: "Malik Robinson",
+      name: "Abena Asante",
       role: "Former Student",
       text: "The learning environment was welcoming and professional. I appreciated how patient the instructors were and how much they cared about student success."
     },
     {
-      name: "Tiana Harris",
+      name: "Yaw Darko",
       role: "Graduate",
       text: "This training helped me take my first real step into healthcare. I left with more knowledge, more confidence, and a better understanding of sterile processing."
     },
     {
-      name: "Andre Miller",
+      name: "Adwoa Frimpong",
       role: "Student",
       text: "Everything was explained in a way that made sense. I really liked how the program balanced professionalism, support, and practical learning."
     }
@@ -103,8 +103,8 @@ export function Home() {
         }
         subtitle="Registration is now open."
         ctaText="Apply for Admissions"
-        backgroundImage="https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/2110/6883265/1000w_q95.jpg"
-        backgroundAlt="Surgical Instruments"
+        backgroundImage="/images/hero-surgical-team.jpg"
+        backgroundAlt="Surgical team in operating room"
       />
 
       {/* What Our Students Say */}
@@ -277,16 +277,16 @@ export function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/2110/6883276/1000w_q95.jpg"
-                alt="Sterile processing student training"
+                src="/images/sterile-processing-instruments.jpg"
+                alt="Sterile processing technician inspecting surgical instruments"
                 className="h-72 w-full object-cover"
               />
             </div>
 
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/2110/6883254/1000w_q95.jpg"
-                alt="Patient safety"
+                src="/images/sterile-processing-department.jpg"
+                alt="Sterile processing department with packaged instruments"
                 className="h-72 w-full object-cover"
               />
             </div>
