@@ -103,7 +103,7 @@ export function Home() {
         }
         subtitle="Registration is now open."
         ctaText="Apply for Admissions"
-        backgroundImage="/images/hero-surgical-team.jpg"
+        backgroundImage="/assets/hero-surgical-team.jpg"
         backgroundAlt="Surgical team in operating room"
       />
 
@@ -277,7 +277,7 @@ export function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="/images/sterile-processing-instruments.jpg"
+                src="/assets/sterile-processing-instruments.jpg"
                 alt="Sterile processing technician inspecting surgical instruments"
                 className="h-72 w-full object-cover"
               />
@@ -285,7 +285,7 @@ export function Home() {
 
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="/images/sterile-processing-department.jpg"
+                src="/assets/sterile-processing-department.jpg"
                 alt="Sterile processing department with packaged instruments"
                 className="h-72 w-full object-cover"
               />
