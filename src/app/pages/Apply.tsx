@@ -12,12 +12,14 @@ export function Apply() {
 
   const initialFormData = {
     fullName: "",
+    dateOfBirth: "",
     email: "",
     phone: "",
     streetAddress: "",
     city: "",
     state: "",
     zipCode: "",
+    hearAboutUs: "",
     highSchoolName: "",
     highSchoolCity: "",
     highSchoolState: "",
@@ -145,6 +147,39 @@ Note: There is a non-refundable registration fee for all cancellations within se
                   Please provide accurate contact and education details so we can review your application.
                 </p>
 
+                {/* Step Progress Bar */}
+                <div className="mt-6 mb-2">
+                  <div className="flex items-center gap-0">
+                    {[
+                      { step: 1, label: "Personal Info" },
+                      { step: 2, label: "Education" },
+                      { step: 3, label: "Payment & Sign" },
+                    ].map((item, i) => (
+                      <div key={item.step} className="flex flex-1 items-center">
+                        <div className="flex flex-col items-center flex-1">
+                          <div
+                            className="flex h-8 w-8 items-center justify-center rounded-full text-white"
+                            style={{
+                              backgroundColor: "#003087",
+                              fontFamily: "Poppins, sans-serif",
+                              fontWeight: 800,
+                              fontSize: 13
+                            }}
+                          >
+                            {item.step}
+                          </div>
+                          <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 11, color: "#003087", fontWeight: 600, marginTop: 4, whiteSpace: "nowrap" }}>
+                            {item.label}
+                          </span>
+                        </div>
+                        {i < 2 && (
+                          <div className="flex-1 h-px mx-1" style={{ backgroundColor: "rgba(0,48,135,0.2)", marginBottom: 18 }} />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 {status === "success" && (
                   <div className="mt-6 rounded-xl border bg-white p-4" style={{ borderColor: "rgba(0,166,81,0.25)" }}>
                     <p style={{ fontFamily: "Rubik, sans-serif", opacity: 0.85 }}>✅ Application submitted! We'll contact you soon.</p>
@@ -165,6 +200,15 @@ Note: There is a non-refundable registration fee for all cancellations within se
                       </label>
                       <input name="fullName" value={formData.fullName} onChange={handleChange} required type="text"
                         placeholder="Naa Ayele Aryeetey"
+                        className="w-full rounded-lg border px-4 py-3 focus:outline-none"
+                        style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
+                    </div>
+
+                    <div>
+                      <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>
+                        Date of Birth <span style={{ color: "#FF8C42" }}>*</span>
+                      </label>
+                      <input name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required type="date"
                         className="w-full rounded-lg border px-4 py-3 focus:outline-none"
                         style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
                     </div>
@@ -302,6 +346,21 @@ Note: There is a non-refundable registration fee for all cancellations within se
                         style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 14 }} />
                     </div>
 
+                    <div>
+                      <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>How did you hear about us?</label>
+                      <select name="hearAboutUs" value={formData.hearAboutUs} onChange={handleChange}
+                        className="w-full rounded-lg border px-3 py-2 focus:outline-none"
+                        style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 14 }}>
+                        <option value="">Select an option</option>
+                        <option value="Google">Google Search</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Word of Mouth">Word of Mouth</option>
+                        <option value="Flyer">Flyer</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
                     <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
                       <p style={{ fontFamily: "Poppins, sans-serif", fontWeight: 800, fontSize: 15, color: "#003087" }}>
                         PLEASE CHOOSE AND CHECK ONE OF THE BELOW PAYMENT PLANS
@@ -381,18 +440,24 @@ Note: There is a non-refundable registration fee for all cancellations within se
               </p>
               <div className="mt-4 flex flex-col gap-3">
                 {payOnlineButton}
-                <button type="button"
-                  className="w-full rounded-full px-8 py-3 text-center text-white transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: "#003087", fontFamily: "Rubik, sans-serif", fontWeight: 900, fontSize: 15, boxShadow: "0 6px 16px rgba(0, 48, 135, 0.18)" }}
-                  onClick={() => alert(`Pay with Zelle:\n\nRecipient: ${ZELLE_RECIPIENT}\nSend to: ${ZELLE_SEND_TO}\nMemo: ${ZELLE_MEMO}`)}>
-                  Pay with Zelle
-                </button>
-                <button type="button"
-                  className="w-full rounded-full px-8 py-3 text-center transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: "white", border: "1px solid rgba(0,48,135,0.18)", color: "#003087", fontFamily: "Rubik, sans-serif", fontWeight: 900, fontSize: 15 }}
-                  onClick={showPaymentPlans}>
-                  View Payment Plans
-                </button>
+              </div>
+
+              <div className="mt-4 rounded-xl p-4" style={{ background: "linear-gradient(135deg, rgba(0,48,135,0.06) 0%, rgba(0,166,81,0.06) 100%)", border: "1px solid rgba(0,48,135,0.12)" }}>
+                <p style={{ fontFamily: "Poppins, sans-serif", fontWeight: 800, fontSize: 13, color: "#003087", letterSpacing: 0.5 }}>PAY WITH ZELLE</p>
+                <div className="mt-2 space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, fontWeight: 700, color: "#0c121c", opacity: 0.6, minWidth: 70 }}>Recipient</span>
+                    <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, color: "#0c121c" }}>{ZELLE_RECIPIENT}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, fontWeight: 700, color: "#0c121c", opacity: 0.6, minWidth: 70 }}>Send to</span>
+                    <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, color: "#003087", fontWeight: 700 }}>{ZELLE_SEND_TO}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, fontWeight: 700, color: "#0c121c", opacity: 0.6, minWidth: 70 }}>Memo</span>
+                    <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, color: "#0c121c", opacity: 0.8, fontStyle: "italic" }}>{ZELLE_MEMO}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

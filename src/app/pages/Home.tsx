@@ -107,6 +107,25 @@ export function Home() {
         backgroundAlt="Surgical team in operating room"
       />
 
+      {/* Stats Bar */}
+      <section style={{ backgroundColor: "#003087" }}>
+        <div className="mx-auto max-w-[1100px] px-4 md:px-8">
+          <div className="grid grid-cols-2 gap-px md:grid-cols-4" style={{ background: "rgba(255,255,255,0.1)" }}>
+            {[
+              { value: "8", label: "Week Program" },
+              { value: "100%", label: "Online + In-Person" },
+              { value: "CRCST", label: "Exam Prep Included" },
+              { value: "50", label: "States Recognized" },
+            ].map((stat) => (
+              <div key={stat.label} className="flex flex-col items-center justify-center py-6 text-center" style={{ background: "#003087" }}>
+                <span style={{ fontFamily: "Poppins, sans-serif", fontSize: "clamp(22px,4vw,32px)", fontWeight: 900, color: "#00A651" }}>{stat.value}</span>
+                <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, color: "#ffffff", opacity: 0.75, marginTop: 2, letterSpacing: 0.3 }}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* What Our Students Say */}
       <section className="py-16 md:py-20" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-[1100px] px-4 md:px-8">
@@ -444,6 +463,41 @@ export function Home() {
       </section>
 
       <RequiredCourseMaterials />
+
+      {/* Bottom CTA Banner */}
+      <section style={{ background: "linear-gradient(135deg, #003087 0%, #001a5c 100%)" }}>
+        <div className="mx-auto max-w-[1100px] px-4 py-16 md:px-8 text-center">
+          <h2
+            className="mb-4"
+            style={{ fontFamily: "Poppins, sans-serif", fontSize: "clamp(26px, 4vw, 38px)", fontWeight: 900, color: "#ffffff", lineHeight: 1.15 }}
+          >
+            Ready to start your career in<br />
+            <span style={{ color: "#00A651" }}>sterile processing?</span>
+          </h2>
+          <p
+            className="mb-8 mx-auto max-w-lg"
+            style={{ fontFamily: "Rubik, sans-serif", fontSize: 16, color: "#ffffff", opacity: 0.7, lineHeight: 1.7 }}
+          >
+            Join our next cohort and get the training, certification prep, and support you need to enter healthcare with confidence.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Link
+              to="/apply"
+              className="rounded-full px-10 py-4 text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "#FF8C42", fontFamily: "Poppins, sans-serif", fontWeight: 900, fontSize: 16, boxShadow: "0 8px 20px rgba(255,140,66,0.35)" }}
+            >
+              Apply Now
+            </Link>
+            <Link
+              to="/contact"
+              className="rounded-full px-10 py-4 transition-opacity hover:opacity-90"
+              style={{ backgroundColor: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.25)", color: "#ffffff", fontFamily: "Poppins, sans-serif", fontWeight: 900, fontSize: 16 }}
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

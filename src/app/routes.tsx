@@ -7,6 +7,7 @@ import { FAQ } from "./pages/FAQ";
 import { ContactUs } from "./pages/ContactUs";
 import { Apply } from "./pages/Apply";
 import { PaymentPlans } from "./pages/PaymentPlans";
+import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ export const router = createBrowserRouter([
       { path: "payment-plans", element: <PaymentPlans /> },
       { path: "faq", element: <FAQ /> },
       { path: "contact", element: <ContactUs /> },
-      { path: "apply", element: <Apply /> }
+      { path: "apply", element: <Apply /> },
+      { path: "*", element: <NotFound /> }
     ]
   }
 ]);

@@ -210,6 +210,24 @@ export function ContactUs() {
         </div>
 
         <RequiredCourseMaterials />
+
+        {/* Google Maps */}
+        <div className="mt-12 overflow-hidden rounded-2xl shadow-lg" style={{ border: "1px solid rgba(0,48,135,0.10)" }}>
+          <div className="px-4 py-4" style={{ background: "#003087" }}>
+            <p style={{ fontFamily: "Poppins, sans-serif", fontWeight: 800, fontSize: 16, color: "#ffffff" }}>Our Location</p>
+            <p style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, color: "#ffffff", opacity: 0.75 }}>860 Melrose Avenue, Bronx, NY 10451</p>
+          </div>
+          <iframe
+            title="DAS Training Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.0!2d-73.9207!3d40.8298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f4b1e1e1e1e1%3A0x0!2s860+Melrose+Ave%2C+Bronx%2C+NY+10451!5e0!3m2!1sen!2sus!4v1"
+            width="100%"
+            height="380"
+            style={{ border: 0, display: "block" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
     </div>
   );
