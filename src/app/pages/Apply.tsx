@@ -14,7 +14,10 @@ export function Apply() {
     fullName: "",
     email: "",
     phone: "",
-    cityState: "",
+    streetAddress: "",
+    city: "",
+    state: "",
+    zipCode: "",
     highSchoolName: "",
     highSchoolCity: "",
     highSchoolState: "",
@@ -25,7 +28,6 @@ export function Apply() {
     message: "",
     paymentPlan: "",
     applicantSignature: "",
-    applicantEmail: "",
     agree: false
   };
 
@@ -37,10 +39,10 @@ export function Apply() {
       formData.fullName.trim().length > 1 &&
       formData.email.trim().length > 3 &&
       formData.phone.trim().length > 6 &&
-      formData.cityState.trim().length > 2 &&
+      formData.streetAddress.trim().length > 2 &&
+      formData.city.trim().length > 0 &&
       formData.paymentPlan.trim().length > 0 &&
       formData.applicantSignature.trim().length > 1 &&
-      formData.applicantEmail.trim().length > 3 &&
       formData.agree === true
     );
   }, [formData]);
@@ -82,24 +84,19 @@ export function Apply() {
   function showPaymentPlans() {
     alert(`PAYMENT OPTIONS
 
-One Time Discounted Payment:
-$2,450.00
+Option 1 — One Time Discounted Payment
+Pay the full tuition upfront and receive a discounted rate.
 
-Pay As You Go:
-$2,500.00
-Minimum $1,000.00 down payment
-Weekly installment payments of $250.00
+Option 2 — Pay As You Go
+A minimum down payment is required at registration.
+Weekly installment payments are due before the conclusion of class.
 
 Program Cost Breakdown:
-Test Preparation: $2,200.00
-Books: $150.00
-Final CRCST Exam: $150.00
+• Test Preparation
+• Required Books
+• Final CRCST Exam
 
-Total Cost: $2,500.00
-
-Note:
-The total cost includes the CRCST certification exam fee of $125.00.
-There is a non-refundable registration fee for cancellations within seven days.`);
+Note: There is a non-refundable registration fee for all cancellations within seven days.`);
   }
 
   const payOnlineButton = PAYMENT_LINK ? (
@@ -192,12 +189,42 @@ There is a non-refundable registration fee for cancellations within seven days.`
                         style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
                     </div>
 
+                    <div className="md:col-span-2">
+                      <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>
+                        Street Address <span style={{ color: "#FF8C42" }}>*</span>
+                      </label>
+                      <input name="streetAddress" value={formData.streetAddress} onChange={handleChange} required type="text"
+                        placeholder="123 Main Street, Apt 4B"
+                        className="w-full rounded-lg border px-4 py-3 focus:outline-none"
+                        style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-5 md:grid-cols-3">
                     <div>
                       <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>
-                        City, State <span style={{ color: "#FF8C42" }}>*</span>
+                        City <span style={{ color: "#FF8C42" }}>*</span>
                       </label>
-                      <input name="cityState" value={formData.cityState} onChange={handleChange} required type="text"
-                        placeholder="Bronx, NY"
+                      <input name="city" value={formData.city} onChange={handleChange} required type="text"
+                        placeholder="Bronx"
+                        className="w-full rounded-lg border px-4 py-3 focus:outline-none"
+                        style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
+                    </div>
+                    <div>
+                      <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>
+                        State <span style={{ color: "#FF8C42" }}>*</span>
+                      </label>
+                      <input name="state" value={formData.state} onChange={handleChange} required type="text"
+                        placeholder="NY"
+                        className="w-full rounded-lg border px-4 py-3 focus:outline-none"
+                        style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
+                    </div>
+                    <div>
+                      <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>
+                        Zip Code
+                      </label>
+                      <input name="zipCode" value={formData.zipCode} onChange={handleChange} type="text"
+                        placeholder="10451"
                         className="w-full rounded-lg border px-4 py-3 focus:outline-none"
                         style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
                     </div>
@@ -280,16 +307,16 @@ There is a non-refundable registration fee for cancellations within seven days.`
                         PLEASE CHOOSE AND CHECK ONE OF THE BELOW PAYMENT PLANS
                       </p>
                       <p style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, color: "#0c121c", marginTop: 4 }}>
-                        I hereby agree to the terms and conditions herein and agree to pay DAS STERILE PROCESSING CENTER $2,500.00 by one of the following plans:
+                        I hereby agree to the terms and conditions herein and agree to pay DAS STERILE PROCESSING CENTER the full program tuition by one of the following plans:
                       </p>
                       <div className="mt-2 space-y-2">
                         <label className="flex items-start gap-2">
                           <input type="radio" name="paymentPlan" value="one_time" checked={formData.paymentPlan === "one_time"} onChange={handleChange} className="mt-1" />
-                          <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14 }}>1. ONE TIME DISCOUNTED PAYMENT OF: $2,450.00</span>
+                          <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14 }}>1. ONE TIME DISCOUNTED PAYMENT — Pay the full tuition upfront and receive a discounted rate.</span>
                         </label>
                         <label className="flex items-start gap-2">
                           <input type="radio" name="paymentPlan" value="pay_as_you_go" checked={formData.paymentPlan === "pay_as_you_go"} onChange={handleChange} className="mt-1" />
-                          <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14 }}>2. PAY AS YOU GO: $2,500.00 (minimum $1,000 down payment, weekly installment payment of $250 before the conclusion of class)</span>
+                          <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14 }}>2. PAY AS YOU GO — Minimum down payment required at registration, with weekly installment payments due before the conclusion of class.</span>
                         </label>
                       </div>
                       <p className="mt-2" style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, color: "#0c121c" }}>
@@ -297,21 +324,20 @@ There is a non-refundable registration fee for cancellations within seven days.`
                       </p>
                       <div className="mt-3">
                         <label className="mb-1 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>
-                          Applicant's signature <span style={{ color: "#FF8C42" }}>*</span>
+                          Applicant's Signature <span style={{ color: "#FF8C42" }}>*</span>
                         </label>
                         <input type="text" name="applicantSignature" value={formData.applicantSignature} onChange={handleChange}
-                          placeholder="Type your full name"
+                          placeholder="Type your full name to sign"
                           className="w-full rounded-lg border px-3 py-2 focus:outline-none"
                           style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif" }} />
-                      </div>
-                      <div className="mt-3">
-                        <label className="mb-1 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, fontWeight: 700, color: "#0c121c" }}>
-                          Applicant's Email address <span style={{ color: "#FF8C42" }}>*</span>
-                        </label>
-                        <input type="email" name="applicantEmail" value={formData.applicantEmail} onChange={handleChange}
-                          placeholder="applicant@example.com"
-                          className="w-full rounded-lg border px-3 py-2 focus:outline-none"
-                          style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif" }} />
+                        {formData.applicantSignature && (
+                          <div className="mt-3 border-b-2 pb-2" style={{ borderColor: "rgba(0,48,135,0.25)" }}>
+                            <p style={{ fontFamily: "'Dancing Script', cursive", fontSize: 36, color: "#003087", lineHeight: 1.3 }}>
+                              {formData.applicantSignature}
+                            </p>
+                            <p style={{ fontFamily: "Rubik, sans-serif", fontSize: 11, color: "#0c121c", opacity: 0.45, marginTop: 4, letterSpacing: 1 }}>APPLICANT SIGNATURE</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -351,7 +377,7 @@ There is a non-refundable registration fee for cancellations within seven days.`
             <div className="rounded-2xl border bg-white p-6" style={{ borderColor: "rgba(0,48,135,0.10)" }}>
               <h3 style={{ fontFamily: "Poppins, sans-serif", fontSize: 18, fontWeight: 900, color: "#003087" }}>Payment Options</h3>
               <p className="mt-2" style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, lineHeight: 1.7, color: "#0c121c", opacity: 0.8 }}>
-                Registration is $1,000. Weekly payments are $250 for six weeks. Full payment must be completed before the end of the eight-week program to take the final DAS Sterile Certification Test.
+                A down payment is required at registration. Weekly installment payments are due throughout the program. Full payment must be completed before the end of the program to take the final DAS Sterile Certification exam.
               </p>
               <div className="mt-4 flex flex-col gap-3">
                 {payOnlineButton}
