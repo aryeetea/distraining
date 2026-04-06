@@ -1,5 +1,4 @@
-// src/app/pages/Courses.tsx
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
@@ -7,6 +6,7 @@ type Chapter = { heading: string; points: string[] };
 type WeekBlock = { week: string; title: string; chapters: Chapter[] };
 
 export function Courses() {
+  useEffect(() => { document.title = "Courses | DAS Training"; }, []);
   // ✅ When your client gives you a payment link, paste it here.
   const PAYMENT_LINK = ""; // leave empty for now
 
@@ -33,33 +33,9 @@ export function Courses() {
       "An 8-week program designed to prepare students for real healthcare environments. Learn the sterile processing workflow from decontamination through sterilization, storage, and quality assurance while following infection prevention and safety standards."
   };
 
-  const showZelleInfo = () => {
-    alert(`Pay with Zelle
+  const showZelleInfo = () => {}; // no longer used — Zelle info shown inline
 
-Recipient: ${ZELLE_RECIPIENT}
-Email: ${ZELLE_SEND_TO}
-Memo: ${ZELLE_MEMO}
-
-Please include your full name and program name in the memo when sending payment.`);
-  };
-
-  const showPaymentOptions = () => {
-    alert(`WEEKLY PAYMENT PLAN - FOR PAY AS YOU GO CANDIDATE
-
-Registration: $1,000
-
-Week 1: $250
-Week 2: $250
-Week 3: $250
-Week 4: $250
-Week 5: $250
-Week 6: $250
-
-Total Payment: $2,500
-
-Note:
-All applicants must complete full payment before the eight weeks in order to take the final DAS Sterile Certification Test.`);
-  };
+  const showPaymentOptions = () => {}; // no longer used — pricing removed
 
   // ✅ Course breakdown (click to expand) — CLOSED by default
   const weeks: WeekBlock[] = [
@@ -644,21 +620,23 @@ All applicants must complete full payment before the eight weeks in order to tak
                     {paymentOptionsButton}
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={showPaymentOptions}
-                    className="mt-3 inline-block w-full rounded-full py-3 text-center transition-opacity hover:opacity-90"
-                    style={{
-                      backgroundColor: "white",
-                      border: "1px solid rgba(0,48,135,0.18)",
-                      color: theme.navy,
-                      fontSize: 15,
-                      fontWeight: 900,
-                      fontFamily: "Rubik, sans-serif"
-                    }}
-                  >
-                    Payment Options
-                  </button>
+                  <div className="mt-4 rounded-xl p-4" style={{ background: "linear-gradient(135deg, rgba(0,48,135,0.06) 0%, rgba(0,166,81,0.06) 100%)", border: "1px solid rgba(0,48,135,0.12)" }}>
+                    <p style={{ fontFamily: "Poppins, sans-serif", fontWeight: 800, fontSize: 13, color: "#003087", letterSpacing: 0.5 }}>PAY WITH ZELLE</p>
+                    <div className="mt-2 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, fontWeight: 700, color: theme.text, opacity: 0.6, minWidth: 70 }}>Recipient</span>
+                        <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, color: theme.text }}>{ZELLE_RECIPIENT}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, fontWeight: 700, color: theme.text, opacity: 0.6, minWidth: 70 }}>Send to</span>
+                        <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 14, color: theme.navy, fontWeight: 700 }}>{ZELLE_SEND_TO}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, fontWeight: 700, color: theme.text, opacity: 0.6, minWidth: 70 }}>Memo</span>
+                        <span style={{ fontFamily: "Rubik, sans-serif", fontSize: 13, color: theme.text, opacity: 0.8, fontStyle: "italic" }}>{ZELLE_MEMO}</span>
+                      </div>
+                    </div>
+                  </div>
 
                   <p
                     className="mt-4"

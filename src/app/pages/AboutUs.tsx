@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 export function AboutUs() {
+  useEffect(() => { document.title = "About Us | DAS Training"; }, []);
   const whyChooseItems = [
     "Industry-leading instructors with decades of experience",
     "Interactive teaching methods and flexible pacing designed to support every student's learning journey",

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 export function FAQ() {
+  useEffect(() => { document.title = "FAQ | DAS Training"; }, []);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [

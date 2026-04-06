@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -9,6 +9,7 @@ export function Apply() {
   const ZELLE_RECIPIENT = "DAS Training";
   const ZELLE_SEND_TO = "Dassterile@gmail.com";
   const ZELLE_MEMO = "Student Full Name + Program Name";
+  const STORAGE_KEY = "das_apply_form";
 
   const initialFormData = {
     fullName: "",
@@ -34,7 +35,22 @@ export function Apply() {
   };
 
   const [status, setStatus] = useState<Status>("idle");
-  const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? { ...initialFormData, ...JSON.parse(saved) } : initialFormData;
+    } catch {
+      return initialFormData;
+    }
+  });
+
+  useEffect(() => { document.title = "Apply | DAS Training"; }, []);
+
+  // Auto-save form to localStorage on every change (excluding agree checkbox and signature)
+  useEffect(() => {
+    const { agree, applicantSignature, ...toSave } = formData;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+  }, [formData]);
 
   const isValid = useMemo(() => {
     return (
@@ -52,7 +68,7 @@ export function Apply() {
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
-    setFormData((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
+    setFormData((prev: typeof initialFormData) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -78,6 +94,7 @@ export function Apply() {
 
       setStatus("success");
       setFormData(initialFormData);
+      localStorage.removeItem(STORAGE_KEY);
     } catch {
       setStatus("error");
     }

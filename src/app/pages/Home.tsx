@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 export function Home() {
+  useEffect(() => { document.title = "DAS Training | Sterile Processing Certificate Program"; }, []);
   const reviews = [
     {
       name: "Ama Boakyewaa",
@@ -103,7 +104,7 @@ export function Home() {
         }
         subtitle="Registration is now open."
         ctaText="Apply for Admissions"
-        backgroundImage="/assets/hero-surgical-team.jpg"
+        backgroundImage="/assets/hero-surgical-team.webp"
         backgroundAlt="Surgical team in operating room"
       />
 
@@ -296,7 +297,7 @@ export function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="/assets/sterile-processing-instruments.jpg"
+                src="/assets/sterile-processing-instruments.webp"
                 alt="Sterile processing technician inspecting surgical instruments"
                 className="h-72 w-full object-cover"
               />
@@ -304,7 +305,7 @@ export function Home() {
 
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <ImageWithFallback
-                src="/assets/sterile-processing-department.jpg"
+                src="/assets/sterile-processing-department.webp"
                 alt="Sterile processing department with packaged instruments"
                 className="h-72 w-full object-cover"
               />

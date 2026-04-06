@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { Link } from "react-router";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 export function PaymentPlans() {
+  useEffect(() => { document.title = "Payment Plans | DAS Training"; }, []);
   const paymentPlans = [
     {
       title: "One-Time Payment",

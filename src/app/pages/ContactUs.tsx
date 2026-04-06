@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 export function ContactUs() {
+  useEffect(() => { document.title = "Contact Us | DAS Training"; }, []);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -11,7 +12,7 @@ export function ContactUs() {
 
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
@@ -184,9 +185,17 @@ export function ContactUs() {
 
               <div>
                 <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: "14px", fontWeight: "600", color: "#0c121c" }}>Subject</label>
-                <input name="subject" value={formData.subject} onChange={handleChange} required type="text"
+                <select name="subject" value={formData.subject} onChange={handleChange} required
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-[#003087] focus:outline-none"
-                  placeholder="How can we help?" style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }} />
+                  style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }}>
+                  <option value="">Select a subject</option>
+                  <option value="Enrollment Question">Enrollment Question</option>
+                  <option value="Payment Question">Payment Question</option>
+                  <option value="Class Schedule Question">Class Schedule Question</option>
+                  <option value="Certification Question">Certification Question</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
 
               <div>

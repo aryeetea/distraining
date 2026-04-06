@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { Link } from "react-router";
 
 export function NotFound() {
+  useEffect(() => { document.title = "Page Not Found | DAS Training"; }, []);
   return (
     <div
       className="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center"
