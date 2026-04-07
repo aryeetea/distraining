@@ -43,8 +43,8 @@ export function HeroSection({
 
       {/* Content Container */}
       <div className="relative mx-auto h-full max-w-[1200px] px-4 md:px-8">
-        <div className="flex h-full items-center justify-center md:justify-start">
-          {/* Left-aligned Text Block */}
+        <div className="flex h-full items-center justify-center md:justify-end">
+          {/* Right-aligned Text Block */}
           <div className="max-w-[520px] rounded-2xl bg-white/95 p-8 md:p-10 shadow-2xl backdrop-blur-sm">
             <h1 
               className="mb-4 md:mb-6"

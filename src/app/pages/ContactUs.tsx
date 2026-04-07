@@ -150,7 +150,7 @@ export function ContactUs() {
 
           <div className="rounded-2xl bg-[#f8fafc] p-8 md:p-10">
             <h2 className="mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "28px", fontWeight: "700", color: "#0c121c" }}>
-              Send Us a Message
+              DAS Sterile Processing Training Center
             </h2>
             <p className="mb-6" style={{ fontFamily: "Rubik, sans-serif", color: "#0c121c", opacity: 0.7 }}>
               We typically respond within 24–48 hours.
