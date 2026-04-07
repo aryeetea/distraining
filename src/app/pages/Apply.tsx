@@ -216,7 +216,7 @@ Note: There is a non-refundable registration fee for all cancellations within se
                         Full Name <span style={{ color: "#FF8C42" }}>*</span>
                       </label>
                       <input name="fullName" value={formData.fullName} onChange={handleChange} required type="text"
-                        placeholder="Naa Ayele Aryeetey"
+                        placeholder="Das Sterile Training"
                         className="w-full rounded-lg border px-4 py-3 focus:outline-none"
                         style={{ borderColor: "rgba(0,0,0,0.15)", fontFamily: "Rubik, sans-serif", fontSize: 15 }} />
                     </div>

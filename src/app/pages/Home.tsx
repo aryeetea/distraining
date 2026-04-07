@@ -128,10 +128,10 @@ export function Home() {
       </section>
 
       {/* What Our Students Say */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: "#ffffff" }}>
+      <section className="py-10 md:py-14" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-[1100px] px-4 md:px-8">
           <div>
-            <div className="mb-8 text-center">
+            <div className="mb-6 text-center">
               <h2
                 style={{
                   fontFamily: "Poppins, sans-serif",
@@ -267,9 +267,9 @@ export function Home() {
       </section>
 
       {/* Main */}
-      <section className="py-12 md:py-20" style={{ backgroundColor: "#f8fafc" }}>
+      <section className="py-10 md:py-14" style={{ backgroundColor: "#f8fafc" }}>
         <div className="mx-auto max-w-[1200px] px-4 md:px-8">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center">
             <h2
               className="mb-4"
               style={{
@@ -313,7 +313,7 @@ export function Home() {
           </div>
 
           <div
-            className="mt-12 rounded-2xl p-8 text-center shadow-lg"
+            className="mt-8 rounded-2xl p-8 text-center shadow-lg"
             style={{
               background:
                 "linear-gradient(135deg, rgba(0,48,135,0.06) 0%, rgba(0,166,81,0.06) 100%)",
@@ -376,7 +376,7 @@ export function Home() {
       </section>
 
       {/* Events & Updates */}
-      <section className="py-12 md:py-20" style={{ backgroundColor: "#ffffff" }}>
+      <section className="py-10 md:py-14" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-[1200px] px-4 md:px-8">
           <h2
             className="mb-4 text-center"
@@ -391,7 +391,7 @@ export function Home() {
           </h2>
 
           <p
-            className="mb-12 text-center"
+            className="mb-8 text-center"
             style={{
               fontFamily: "Rubik, sans-serif",
               fontSize: "clamp(16px, 2vw, 18px)",

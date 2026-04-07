@@ -173,7 +173,7 @@ export function ContactUs() {
                 <label className="mb-2 block" style={{ fontFamily: "Rubik, sans-serif", fontSize: "14px", fontWeight: "600", color: "#0c121c" }}>Full Name</label>
                 <input name="fullName" value={formData.fullName} onChange={handleChange} required type="text"
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 transition-colors focus:border-[#003087] focus:outline-none"
-                  placeholder="Naa Ayele Aryeetey" style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }} />
+                  placeholder="Das Sterile Training" style={{ fontFamily: "Rubik, sans-serif", fontSize: "15px" }} />
               </div>
 
               <div>
