@@ -36,16 +36,16 @@ export function HeroSection({
           src={backgroundImage}
           alt={backgroundAlt}
           className="h-full w-full object-cover"
+          style={{ objectPosition: '25% center' }}
         />
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/20"></div>
       </div>
 
       {/* Content Container */}
-      <div className="relative mx-auto h-full max-w-[1200px] px-4 md:px-8">
-        <div className="flex h-full items-center justify-center md:justify-end">
+      <div className="absolute inset-0 flex items-center justify-end pr-8 md:pr-16 lg:pr-24">
           {/* Right-aligned Text Block */}
-          <div className="max-w-[520px] rounded-2xl bg-white/95 p-8 md:p-10 shadow-2xl backdrop-blur-sm">
+          <div className="w-full max-w-[420px] rounded-2xl bg-white/95 p-8 md:p-10 shadow-2xl backdrop-blur-sm">
             <h1 
               className="mb-4 md:mb-6"
               style={{ 
@@ -84,7 +84,6 @@ export function HeroSection({
               {ctaText}
             </button>
           </div>
-        </div>
       </div>
     </section>
   );

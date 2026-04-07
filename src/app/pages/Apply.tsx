@@ -1,6 +1,7 @@
 import { useMemo, useEffect, useState } from "react";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
+
 type Status = "idle" | "sending" | "success" | "error";
 
 export function Apply() {

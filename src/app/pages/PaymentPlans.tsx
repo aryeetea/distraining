@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
+
 export function PaymentPlans() {
   useEffect(() => { document.title = "Payment Plans | DAS Training"; }, []);
   const paymentPlans = [
@@ -20,11 +21,11 @@ export function PaymentPlans() {
   ];
 
   return (
-    <div className="py-12 md:py-20" style={{ backgroundColor: "#f8fafc" }}>
+    <div className="py-4 md:py-6" style={{ backgroundColor: "#f8fafc" }}>
       <div className="mx-auto max-w-[1100px] px-4 md:px-8">
 
         {/* Page Header */}
-        <div className="mb-12 text-center">
+        <div className="mb-6 text-center">
           <h1
             className="mb-4"
             style={{

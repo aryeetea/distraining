@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
+
 export function AboutUs() {
   useEffect(() => { document.title = "About Us | DAS Training"; }, []);
   const whyChooseItems = [
@@ -12,11 +13,11 @@ export function AboutUs() {
   ];
 
   return (
-    <div className="py-12 md:py-20" style={{ backgroundColor: "#f8fafc" }}>
+    <div className="py-4 md:py-6" style={{ backgroundColor: "#f8fafc" }}>
       <div className="mx-auto max-w-[1200px] px-4 md:px-8">
 
         {/* Header */}
-        <div className="mb-12 text-center">
+        <div className="mb-6 text-center">
           <h1
             className="mb-4"
             style={{

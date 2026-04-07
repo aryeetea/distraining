@@ -39,7 +39,7 @@ export function FAQ() {
   ];
 
   return (
-    <div className="py-12 md:py-20" style={{ backgroundColor: "#f8fafc" }}>
+    <div className="py-4 md:py-6" style={{ backgroundColor: "#f8fafc" }}>
       <div className="mx-auto max-w-[900px] px-4 md:px-8">
         <h1
           className="mb-4 text-center"
@@ -54,7 +54,7 @@ export function FAQ() {
         </h1>
 
         <p
-          className="mb-12 text-center"
+          className="mb-6 text-center"
           style={{
             fontFamily: "Rubik, sans-serif",
             fontSize: "clamp(16px, 2vw, 18px)",

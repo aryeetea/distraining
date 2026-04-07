@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
+
 type Chapter = { heading: string; points: string[] };
 type WeekBlock = { week: string; title: string; chapters: Chapter[] };
 
@@ -315,7 +316,7 @@ export function Courses() {
   );
 
   return (
-    <div className="py-12 md:py-20" style={{ backgroundColor: theme.bg }}>
+    <div className="py-4 md:py-6" style={{ backgroundColor: theme.bg }}>
       <div className="mx-auto max-w-[1200px] px-4 md:px-8">
         <h1
           className="mb-4 text-center"
@@ -330,7 +331,7 @@ export function Courses() {
         </h1>
 
         <p
-          className="mb-10 text-center"
+          className="mb-6 text-center"
           style={{
             fontFamily: "Rubik, sans-serif",
             fontSize: "clamp(16px, 2vw, 18px)",
@@ -343,7 +344,7 @@ export function Courses() {
         </p>
 
         {/* Overview + Certification */}
-        <div className="mb-12 grid gap-6 lg:grid-cols-2">
+        <div className="mb-6 grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between">
             <div>
               <h2

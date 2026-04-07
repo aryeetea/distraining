@@ -4,6 +4,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Link } from "react-router";
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
+
 export function Home() {
   useEffect(() => { document.title = "DAS Training | Sterile Processing Certificate Program"; }, []);
   const reviews = [
@@ -128,7 +129,7 @@ export function Home() {
       </section>
 
       {/* What Our Students Say */}
-      <section className="py-10 md:py-14" style={{ backgroundColor: "#ffffff" }}>
+      <section className="py-4" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-[1100px] px-4 md:px-8">
           <div>
             <div className="mb-6 text-center">
@@ -267,7 +268,7 @@ export function Home() {
       </section>
 
       {/* Main */}
-      <section className="py-10 md:py-14" style={{ backgroundColor: "#f8fafc" }}>
+      <section className="py-4" style={{ backgroundColor: "#f8fafc" }}>
         <div className="mx-auto max-w-[1200px] px-4 md:px-8">
           <div className="mb-8 text-center">
             <h2
@@ -376,7 +377,7 @@ export function Home() {
       </section>
 
       {/* Events & Updates */}
-      <section className="py-10 md:py-14" style={{ backgroundColor: "#ffffff" }}>
+      <section className="py-4" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-[1200px] px-4 md:px-8">
           <h2
             className="mb-4 text-center"

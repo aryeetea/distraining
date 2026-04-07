@@ -1,3 +1,4 @@
+
 import { RequiredCourseMaterials } from "../components/RequiredCourseMaterials";
 
 export function Events() {

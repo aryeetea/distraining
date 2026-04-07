@@ -21,7 +21,7 @@ export function RequiredCourseMaterials() {
   ];
 
   return (
-    <section className="mt-12 mb-12">
+    <section className="mt-2 mb-2">
       <div
         className="overflow-hidden rounded-2xl bg-white shadow-lg"
         style={{ border: "1px solid rgba(255,140,66,0.10)", padding: "0.1rem" }}
