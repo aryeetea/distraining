@@ -135,7 +135,7 @@ Note: There is a non-refundable registration fee for all cancellations within se
   );
 
   return (
-    <div className="py-12 md:py-20" style={{ backgroundColor: "#ffffff" }}>
+    <div className="py-4 md:py-6" style={{ backgroundColor: "#ffffff" }}>
       <div className="mx-auto max-w-[1200px] px-4 md:px-8">
         <div className="mb-10">
           <div className="inline-flex items-center gap-2 rounded-full px-4 py-2"
