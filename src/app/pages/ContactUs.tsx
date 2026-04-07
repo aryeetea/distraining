@@ -45,7 +45,7 @@ export function ContactUs() {
   }
 
   return (
-    <div className="py-12 md:py-20" style={{ backgroundColor: "#ffffff" }}>
+    <div className="py-4 md:py-6" style={{ backgroundColor: "#ffffff" }}>
       <div className="mx-auto max-w-[1200px] px-4 md:px-8">
         <h1
           className="mb-4 text-center"
@@ -60,7 +60,7 @@ export function ContactUs() {
         </h1>
 
         <p
-          className="mb-12 text-center"
+          className="mb-6 text-center"
           style={{
             fontFamily: "Rubik, sans-serif",
             fontSize: "clamp(16px, 2vw, 18px)",
